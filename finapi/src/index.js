@@ -30,12 +30,15 @@ app.post('/account', (request, response) => {
   return response.sendStatus(201); //* Created
 });
 
-app.get('/statement/:nif', (request, response) => {
+app.get('/statement', (request, response) => {
   const {
-    params: { nif },
+    headers: { nif },
   } = request;
 
   const customer = customers.find((customer) => customer.nif === nif);
+
+  if (!customer)
+    return response.status(404).json({ error: 'Customer not found' }); //! Not Found
 
   return response.json(customer.statement);
 });

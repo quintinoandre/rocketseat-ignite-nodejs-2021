@@ -1,13 +1,13 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2022-05-13T19:16:06.396Z",
+  "__export_date": "2022-05-13T19:25:12.711Z",
   "__export_source": "insomnia.desktop.app:v2021.7.2",
   "resources": [
     {
       "_id": "req_f845a8934b454ac0a0145d0b11b7c237",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652469242124,
+      "modified": 1652469848159,
       "created": 1652401250007,
       "url": "{{ _.baseURL }}/account",
       "name": "Create Account",
@@ -49,15 +49,22 @@
     {
       "_id": "req_18e1459cbbf846cbb2d624f24a9656f8",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652469078928,
+      "modified": 1652469819960,
       "created": 1652468956485,
-      "url": "{{ _.baseURL }}/statement/123456789",
+      "url": "{{ _.baseURL }}/statement",
       "name": "Search Statement",
       "description": "",
       "method": "GET",
       "body": {},
       "parameters": [],
-      "headers": [],
+      "headers": [
+        {
+          "id": "pair_1865ea3350e349258572b47ee9e84538",
+          "name": "nif",
+          "value": "123456789",
+          "description": ""
+        }
+      ],
       "authentication": {},
       "metaSortKey": 100,
       "isPrivate": false,
