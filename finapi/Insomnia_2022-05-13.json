@@ -1,0 +1,107 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-05-13T18:48:09.130Z",
+  "__export_source": "insomnia.desktop.app:v2021.7.2",
+  "resources": [
+    {
+      "_id": "req_f845a8934b454ac0a0145d0b11b7c237",
+      "parentId": "fld_2a1b99c6bd3746ea9b4e37eb7cf442d4",
+      "modified": 1652467673163,
+      "created": 1652401250007,
+      "url": "{{ _.baseURL }}/{{ _.resource }}",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nif\": 123456789,\n\t\"name\": \"Daniele Leão Evangelista\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_dcb7447d9cb648cc853153f60195f71b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 0,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_2a1b99c6bd3746ea9b4e37eb7cf442d4",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652467478274,
+      "created": 1652400950562,
+      "name": "Accounts",
+      "description": "",
+      "environment": { "resource": "accounts" },
+      "environmentPropertyOrder": { "&": ["resource"] },
+      "metaSortKey": 0,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_c4000b18f62643b9a13171c156111823",
+      "parentId": null,
+      "modified": 1652467431766,
+      "created": 1652400856730,
+      "name": "finapi",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_8b6637c3c9f2d3f520321374551d458b595cb8ea",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652400861083,
+      "created": 1652400856797,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": {},
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1652400856797,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_8b6637c3c9f2d3f520321374551d458b595cb8ea",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652400856854,
+      "created": 1652400856854,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_d9b127a8df8c4250a4f975950ddee01e",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652400856752,
+      "created": 1652400856752,
+      "fileName": "fundamentos-nodejs",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_b4bc2fcef51c43ff860732867993130c",
+      "parentId": "env_8b6637c3c9f2d3f520321374551d458b595cb8ea",
+      "modified": 1652467446853,
+      "created": 1652400863923,
+      "name": "development",
+      "data": { "baseURL": "http://localhost:3333" },
+      "dataPropertyOrder": { "&": ["baseURL"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1652400863923,
+      "_type": "environment"
+    }
+  ]
+}
