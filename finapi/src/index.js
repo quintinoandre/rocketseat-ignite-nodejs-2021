@@ -18,11 +18,20 @@ app.post('/accounts', (request, response) => {
     body: { nif, name },
   } = request;
 
-  const id = uuidv4();
+  const customerAlreadyExists = customers.some(
+    (customer) => customer.nif === nif
+  );
 
-  customers.push({ nif, name, id, statement: [] });
+  if (customerAlreadyExists)
+    return response.status(400).json({ error: 'Customer already exists' }); //! Bad Request
+
+  customers.push({ nif, name, id: uuidv4(), statement: [] });
 
   return response.sendStatus(201); //* Created
 });
 
-app.listen(3333);
+const PORT = 3333;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
