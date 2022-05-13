@@ -1,21 +1,30 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2022-05-13T00:25:33.630Z",
+  "__export_date": "2022-05-13T00:47:02.317Z",
   "__export_source": "insomnia.desktop.app:v2021.7.2",
   "resources": [
     {
       "_id": "req_f845a8934b454ac0a0145d0b11b7c237",
       "parentId": "fld_2a1b99c6bd3746ea9b4e37eb7cf442d4",
-      "modified": 1652401501968,
+      "modified": 1652402721616,
       "created": 1652401250007,
       "url": "{{ _.baseURL }}/{{ _.resource }}",
       "name": "Create",
       "description": "",
       "method": "POST",
-      "body": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Dani\",\n\t\"age\": 31\n}"
+      },
       "parameters": [],
-      "headers": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_dcb7447d9cb648cc853153f60195f71b"
+        }
+      ],
       "authentication": {},
       "metaSortKey": 0,
       "isPrivate": false,
@@ -98,14 +107,27 @@
     {
       "_id": "req_8a54938d13d74f21a2eccad2d40bbc4f",
       "parentId": "fld_2a1b99c6bd3746ea9b4e37eb7cf442d4",
-      "modified": 1652401501968,
+      "modified": 1652402482555,
       "created": 1652401137661,
       "url": "{{ _.baseURL }}/{{ _.resource }}",
       "name": "Search",
       "description": "",
       "method": "GET",
       "body": {},
-      "parameters": [],
+      "parameters": [
+        {
+          "id": "pair_4d9ab1068fc0453bb7980235ae51e155",
+          "name": "page",
+          "value": "1",
+          "description": ""
+        },
+        {
+          "id": "pair_a922a520d2cc483295454c86be361cda",
+          "name": "order",
+          "value": "desc",
+          "description": ""
+        }
+      ],
       "headers": [],
       "authentication": {},
       "metaSortKey": 300,
