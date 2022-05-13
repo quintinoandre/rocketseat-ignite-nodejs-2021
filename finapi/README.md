@@ -5,7 +5,7 @@
 ### Requisitos
 
 - [x] Deve ser possível criar uma conta
-- [] Deve ser possível procurar o extrato bancário do cliente
+- [x] Deve ser possível procurar o extrato bancário do cliente
 - [] Deve ser possível realizar um depósito
 - [] Deve ser possível realizar um levantamento
 - [] Deve ser possível procurar o extrato bancário do cliente por data

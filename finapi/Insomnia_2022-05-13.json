@@ -1,21 +1,21 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2022-05-13T18:48:09.130Z",
+  "__export_date": "2022-05-13T19:16:06.396Z",
   "__export_source": "insomnia.desktop.app:v2021.7.2",
   "resources": [
     {
       "_id": "req_f845a8934b454ac0a0145d0b11b7c237",
-      "parentId": "fld_2a1b99c6bd3746ea9b4e37eb7cf442d4",
-      "modified": 1652467673163,
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652469242124,
       "created": 1652401250007,
-      "url": "{{ _.baseURL }}/{{ _.resource }}",
-      "name": "Create",
+      "url": "{{ _.baseURL }}/account",
+      "name": "Create Account",
       "description": "",
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"nif\": 123456789,\n\t\"name\": \"Daniele Leão Evangelista\"\n}"
+        "text": "{\n\t\"nif\": \"123456789\",\n\t\"name\": \"Daniele Leão Evangelista\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -37,18 +37,6 @@
       "_type": "request"
     },
     {
-      "_id": "fld_2a1b99c6bd3746ea9b4e37eb7cf442d4",
-      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652467478274,
-      "created": 1652400950562,
-      "name": "Accounts",
-      "description": "",
-      "environment": { "resource": "accounts" },
-      "environmentPropertyOrder": { "&": ["resource"] },
-      "metaSortKey": 0,
-      "_type": "request_group"
-    },
-    {
       "_id": "wrk_c4000b18f62643b9a13171c156111823",
       "parentId": null,
       "modified": 1652467431766,
@@ -57,6 +45,29 @@
       "description": "",
       "scope": "collection",
       "_type": "workspace"
+    },
+    {
+      "_id": "req_18e1459cbbf846cbb2d624f24a9656f8",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652469078928,
+      "created": 1652468956485,
+      "url": "{{ _.baseURL }}/statement/123456789",
+      "name": "Search Statement",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": 100,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
     },
     {
       "_id": "env_8b6637c3c9f2d3f520321374551d458b595cb8ea",
