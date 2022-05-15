@@ -7,12 +7,22 @@ app.use(express.json());
 
 const customers = [];
 
-/**
- * nif: string
- * name: string
- * id: uuid
- * statement: []
- */
+// Middleware
+function verifyIfExistsAccountNIF(request, response, next) {
+  const {
+    headers: { nif },
+  } = request;
+
+  const customer = customers.find((customer) => customer.nif === nif);
+
+  if (!customer)
+    return response.status(404).json({ error: 'Customer not found' }); //! Not Found
+
+  request.customer = customer;
+
+  return next();
+}
+
 app.post('/account', (request, response) => {
   const {
     body: { nif, name },
@@ -30,15 +40,10 @@ app.post('/account', (request, response) => {
   return response.sendStatus(201); //* Created
 });
 
-app.get('/statement', (request, response) => {
-  const {
-    headers: { nif },
-  } = request;
+// app.use(verifyIfExistsAccountNIF);
 
-  const customer = customers.find((customer) => customer.nif === nif);
-
-  if (!customer)
-    return response.status(404).json({ error: 'Customer not found' }); //! Not Found
+app.get('/statement', verifyIfExistsAccountNIF, (request, response) => {
+  const { customer } = request;
 
   return response.json(customer.statement);
 });
