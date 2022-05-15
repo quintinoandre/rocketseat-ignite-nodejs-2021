@@ -11,7 +11,8 @@
 - [x] Deve ser possível procurar o extrato bancário do cliente por data
 - [x] Deve ser possível atualizar os dados da conta do cliente
 - [x] Deve ser possível obter os dados da conta do cliente
-- [] Deve ser possível eliminar uma conta
+- [x] Deve ser possível eliminar uma conta
+- [x] Deve ser possível procurar o balanço do cliente
 
 ---
 
@@ -22,4 +23,4 @@
 - [x] Não deve ser possível fazer um depósito numa conta não existente
 - [x] Não deve ser possível fazer um levantamento de uma conta não existente
 - [x] Não deve ser possível fazer um levantamento quando o saldo for insuficiente
-- [] Não deve ser possível excluir uma conta não existente
+- [x] Não deve ser possível excluir uma conta não existente

@@ -1,13 +1,13 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2022-05-15T17:49:41.398Z",
+  "__export_date": "2022-05-15T18:07:14.521Z",
   "__export_source": "insomnia.desktop.app:v2021.7.2",
   "resources": [
     {
       "_id": "req_f845a8934b454ac0a0145d0b11b7c237",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652636940204,
+      "modified": 1652637984432,
       "created": 1652401250007,
       "url": "{{ _.baseURL }}/account",
       "name": "Create Account",
@@ -15,7 +15,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"nif\": \"987654321\",\n\t\"name\": \"Diego Fernandes\"\n}"
+        "text": "{\n\t\"nif\": \"123456789\",\n\t\"name\": \"Mayk Brito\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -47,9 +47,39 @@
       "_type": "workspace"
     },
     {
+      "_id": "req_f39a395bb1ee4a858619863cda32d903",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652637861904,
+      "created": 1652637575084,
+      "url": "{{ _.baseURL }}/account",
+      "name": "Delete Account",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_92bab7336e67460bb52b739227926af3",
+          "name": "nif",
+          "value": "987654321",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 100,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
       "_id": "req_89a71515ab6e418ead7b25d5167e7cba",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652636919027,
+      "modified": 1652637978238,
       "created": 1652633390544,
       "url": "{{ _.baseURL }}/deposit",
       "name": "Make Deposit",
@@ -74,7 +104,7 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": 100,
+      "metaSortKey": 200,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -87,7 +117,7 @@
     {
       "_id": "req_01da482e85f54507a78a5aed4bd52881",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652636797641,
+      "modified": 1652637979920,
       "created": 1652634550073,
       "url": "{{ _.baseURL }}/withdraw",
       "name": "Make Withdraw",
@@ -112,7 +142,7 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": 200,
+      "metaSortKey": 300,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -125,7 +155,7 @@
     {
       "_id": "req_a7cf21bc590247f082cd914756f6b297",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652636947055,
+      "modified": 1652637861904,
       "created": 1652636795170,
       "url": "{{ _.baseURL }}/account",
       "name": "Search Account",
@@ -142,7 +172,37 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": 300,
+      "metaSortKey": 400,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_fb35f647a2964e829d14f9042a78bc12",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652637936474,
+      "created": 1652637858839,
+      "url": "{{ _.baseURL }}/balance",
+      "name": "Search Balance",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_fce5b1f47ca74b31977e02e8c8a27a0f",
+          "name": "nif",
+          "value": "123456789",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 500,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -155,7 +215,7 @@
     {
       "_id": "req_18e1459cbbf846cbb2d624f24a9656f8",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652636797641,
+      "modified": 1652637861905,
       "created": 1652468956485,
       "url": "{{ _.baseURL }}/statement",
       "name": "Search Statement",
@@ -172,7 +232,7 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": 400,
+      "metaSortKey": 600,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -185,7 +245,7 @@
     {
       "_id": "req_5fd7fc8b5d144c52ab717a31477d9128",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652636797641,
+      "modified": 1652637861905,
       "created": 1652635915065,
       "url": "{{ _.baseURL }}/statement/date",
       "name": "Search Statement By Date",
@@ -209,7 +269,7 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": 500,
+      "metaSortKey": 700,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -222,7 +282,7 @@
     {
       "_id": "req_9f9e08bca0fe47bdbaab51b45c95a8f2",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652636939181,
+      "modified": 1652637861905,
       "created": 1652636565211,
       "url": "{{ _.baseURL }}/account",
       "name": "Update Account",
@@ -247,7 +307,7 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": 600,
+      "metaSortKey": 800,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,

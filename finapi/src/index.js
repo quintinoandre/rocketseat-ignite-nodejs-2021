@@ -136,6 +136,22 @@ app.get('/account', verifyIfExistsAccountNIF, (request, response) => {
   return response.json(customer);
 });
 
+app.delete('/account', verifyIfExistsAccountNIF, (request, response) => {
+  const { customer } = request;
+
+  customers.splice(customer, 1);
+
+  return response.sendStatus(204); //* No Content
+});
+
+app.get('/balance', verifyIfExistsAccountNIF, (request, response) => {
+  const { customer } = request;
+
+  const balance = getBalance(customer.statement);
+
+  return response.json({ balance });
+});
+
 const PORT = 3333;
 
 app.listen(PORT, () => {
