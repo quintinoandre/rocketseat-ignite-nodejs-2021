@@ -103,6 +103,22 @@ app.post('/withdraw', verifyIfExistsAccountNIF, (request, response) => {
   return response.sendStatus(201); //* Created
 });
 
+app.get('/statement/date', verifyIfExistsAccountNIF, (request, response) => {
+  const {
+    query: { date },
+    customer,
+  } = request;
+
+  const dateFormat = new Date(`${date} 00:00`);
+
+  const statement = customer.statement.filter(
+    (statement) =>
+      statement.createdAt.toDateString() === new Date(dateFormat).toDateString()
+  );
+
+  return response.json(statement);
+});
+
 const PORT = 3333;
 
 app.listen(PORT, () => {
