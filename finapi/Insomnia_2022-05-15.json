@@ -1,13 +1,13 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2022-05-13T19:25:12.711Z",
+  "__export_date": "2022-05-15T16:54:15.356Z",
   "__export_source": "insomnia.desktop.app:v2021.7.2",
   "resources": [
     {
       "_id": "req_f845a8934b454ac0a0145d0b11b7c237",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652469848159,
+      "modified": 1652633581146,
       "created": 1652401250007,
       "url": "{{ _.baseURL }}/account",
       "name": "Create Account",
@@ -47,9 +47,47 @@
       "_type": "workspace"
     },
     {
+      "_id": "req_89a71515ab6e418ead7b25d5167e7cba",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652633621488,
+      "created": 1652633390544,
+      "url": "{{ _.baseURL }}/deposit",
+      "name": "Make Deposit",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"description\": \"Dani Transfer\",\n\t\"amount\": 3600.00\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_7386d9d3c2d4470ba41380a1b90b7dd0"
+        },
+        {
+          "id": "pair_d114b64f93d046aa982b43d7db4773a4",
+          "name": "nif",
+          "value": "123456789",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 100,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
       "_id": "req_18e1459cbbf846cbb2d624f24a9656f8",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652469819960,
+      "modified": 1652633392817,
       "created": 1652468956485,
       "url": "{{ _.baseURL }}/statement",
       "name": "Search Statement",
@@ -66,7 +104,7 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": 100,
+      "metaSortKey": 200,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
