@@ -28,6 +28,16 @@ function verifyIfExistsAccountNIF(request, response, next) {
   return next();
 }
 
+function getBalance(statement) {
+  const balance = statement.reduce((accumulator, currentValue) => {
+    if (currentValue.type === STATEMENT_TYPES.credit)
+      return accumulator + currentValue.amount;
+    return accumulator - currentValue.amount;
+  }, 0);
+
+  return balance;
+}
+
 app.post('/account', (request, response) => {
   const {
     body: { nif, name },
@@ -64,6 +74,28 @@ app.post('/deposit', verifyIfExistsAccountNIF, (request, response) => {
     amount,
     createdAt: new Date(),
     type: STATEMENT_TYPES.credit,
+  };
+
+  customer.statement.push(statementOperation);
+
+  return response.sendStatus(201); //* Created
+});
+
+app.post('/withdraw', verifyIfExistsAccountNIF, (request, response) => {
+  const {
+    body: { amount },
+    customer,
+  } = request;
+
+  const balance = getBalance(customer.statement);
+
+  if (balance < amount)
+    return response.status(400).json({ error: 'Insufficient funds' }); //! Bad Request
+
+  const statementOperation = {
+    amount,
+    createdAt: new Date(),
+    type: STATEMENT_TYPES.debit,
   };
 
   customer.statement.push(statementOperation);

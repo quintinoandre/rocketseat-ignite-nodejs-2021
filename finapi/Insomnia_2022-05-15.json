@@ -1,13 +1,13 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2022-05-15T16:54:15.356Z",
+  "__export_date": "2022-05-15T17:12:02.214Z",
   "__export_source": "insomnia.desktop.app:v2021.7.2",
   "resources": [
     {
       "_id": "req_f845a8934b454ac0a0145d0b11b7c237",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652633581146,
+      "modified": 1652634630640,
       "created": 1652401250007,
       "url": "{{ _.baseURL }}/account",
       "name": "Create Account",
@@ -49,7 +49,7 @@
     {
       "_id": "req_89a71515ab6e418ead7b25d5167e7cba",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652633621488,
+      "modified": 1652634667243,
       "created": 1652633390544,
       "url": "{{ _.baseURL }}/deposit",
       "name": "Make Deposit",
@@ -85,9 +85,47 @@
       "_type": "request"
     },
     {
+      "_id": "req_01da482e85f54507a78a5aed4bd52881",
+      "parentId": "wrk_c4000b18f62643b9a13171c156111823",
+      "modified": 1652634673222,
+      "created": 1652634550073,
+      "url": "{{ _.baseURL }}/withdraw",
+      "name": "Make Withdraw",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"amount\": 100\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_ece3e1a22bb54010a66012f43860af3b"
+        },
+        {
+          "id": "pair_9290e5365fd44b8985c55cd9077c4e0a",
+          "name": "nif",
+          "value": "123456789",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 200,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
       "_id": "req_18e1459cbbf846cbb2d624f24a9656f8",
       "parentId": "wrk_c4000b18f62643b9a13171c156111823",
-      "modified": 1652633392817,
+      "modified": 1652634686068,
       "created": 1652468956485,
       "url": "{{ _.baseURL }}/statement",
       "name": "Search Statement",
@@ -104,7 +142,7 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": 200,
+      "metaSortKey": 300,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
