@@ -119,6 +119,23 @@ app.get('/statement/date', verifyIfExistsAccountNIF, (request, response) => {
   return response.json(statement);
 });
 
+app.put('/account', verifyIfExistsAccountNIF, (request, response) => {
+  const {
+    body: { name },
+    customer,
+  } = request;
+
+  customer.name = name;
+
+  return response.sendStatus(201); //* Created
+});
+
+app.get('/account', verifyIfExistsAccountNIF, (request, response) => {
+  const { customer } = request;
+
+  return response.json(customer);
+});
+
 const PORT = 3333;
 
 app.listen(PORT, () => {
