@@ -1,0 +1,95 @@
+{
+	"_type": "export",
+	"__export_format": 4,
+	"__export_date": "2022-05-19T22:04:05.968Z",
+	"__export_source": "insomnia.desktop.app:v2021.7.2",
+	"resources": [
+		{
+			"_id": "req_42e7369ff26d4a22b4626789654a04a8",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1652997136561,
+			"created": 1652997098011,
+			"url": "{{ _.baseURL }}/courses",
+			"name": "Courses",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"NodeJS\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_b3ebae4445e1400191f610dadec61d72"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1652997098012,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"parentId": null,
+			"modified": 1652997011274,
+			"created": 1652997011274,
+			"name": "rentalx",
+			"description": "",
+			"scope": "collection",
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_e48984d266b549193cc4d587b1b0af3d4da4f753",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1652997015819,
+			"created": 1652997011302,
+			"name": "Base Environment",
+			"data": {},
+			"dataPropertyOrder": {},
+			"color": null,
+			"isPrivate": false,
+			"metaSortKey": 1652997011302,
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_e48984d266b549193cc4d587b1b0af3d4da4f753",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1652997011304,
+			"created": 1652997011304,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "spc_5348ab4b51c84b3bb932af64fbf0ecac",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1652997011291,
+			"created": 1652997011291,
+			"fileName": "rentalx",
+			"contents": "",
+			"contentType": "yaml",
+			"_type": "api_spec"
+		},
+		{
+			"_id": "env_9e937d1dd7d742948a2298e7199909d1",
+			"parentId": "env_e48984d266b549193cc4d587b1b0af3d4da4f753",
+			"modified": 1652997060134,
+			"created": 1652997017189,
+			"name": "development",
+			"data": { "baseURL": "http://localhost:3333" },
+			"dataPropertyOrder": { "&": ["baseURL"] },
+			"color": null,
+			"isPrivate": false,
+			"metaSortKey": 1652997017189,
+			"_type": "environment"
+		}
+	]
+}

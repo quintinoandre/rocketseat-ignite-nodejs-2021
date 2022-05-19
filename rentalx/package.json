@@ -4,7 +4,7 @@
 	"main": "src/server.ts",
 	"license": "MIT",
 	"scripts": {
-		"dev": "tsnd --transpile-only --ignore-watch node_modules --respawn .",
+		"dev": "tsnd --inspect --transpile-only --ignore-watch node_modules --respawn .",
 		"lint": "eslint ./",
 		"lintFix": "eslint ./ --fix",
 		"format": "prettier --write \"**/*.{js,json,md,ts}\""
