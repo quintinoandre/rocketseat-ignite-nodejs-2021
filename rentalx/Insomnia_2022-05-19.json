@@ -1,32 +1,32 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-05-19T22:04:05.968Z",
+	"__export_date": "2022-05-19T22:25:54.967Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
-			"_id": "req_42e7369ff26d4a22b4626789654a04a8",
-			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1652997136561,
-			"created": 1652997098011,
-			"url": "{{ _.baseURL }}/courses",
-			"name": "Courses",
+			"_id": "req_9bd79d19bd5046e8947b15fbb6d94492",
+			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
+			"modified": 1652999053947,
+			"created": 1652998940525,
+			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
+			"name": "Create",
 			"description": "",
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"NodeJS\"\n}"
+				"text": "{\n\t\"name\": \"SUV\",\n\t\"description\": \"Category of SUV car\"\n}"
 			},
 			"parameters": [],
 			"headers": [
 				{
 					"name": "Content-Type",
 					"value": "application/json",
-					"id": "pair_b3ebae4445e1400191f610dadec61d72"
+					"id": "pair_d0e14e933261405e8b6199f4c9ae3719"
 				}
 			],
 			"authentication": {},
-			"metaSortKey": -1652997098012,
+			"metaSortKey": -1652998940525,
 			"isPrivate": false,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
@@ -35,6 +35,18 @@
 			"settingRebuildPath": true,
 			"settingFollowRedirects": "global",
 			"_type": "request"
+		},
+		{
+			"_id": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1652998927837,
+			"created": 1652998896661,
+			"name": "Categories",
+			"description": "",
+			"environment": { "resource_categories": "categories" },
+			"environmentPropertyOrder": { "&": ["resource_categories"] },
+			"metaSortKey": -1652998896661,
+			"_type": "request_group"
 		},
 		{
 			"_id": "wrk_0ba38f5773b346f9a5020f77ee64e409",
