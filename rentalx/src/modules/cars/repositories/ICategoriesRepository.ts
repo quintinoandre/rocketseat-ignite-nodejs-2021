@@ -7,9 +7,9 @@ interface ICreateCategoryDTO {
 }
 
 interface ICategoriesRepository {
-	findByName(name: string): Category | undefined;
-	list(): Array<Category>;
 	create({ name, description }: ICreateCategoryDTO): void;
+	list(): Array<Category>;
+	findByName(name: string): Category;
 }
 
 export type { ICreateCategoryDTO, ICategoriesRepository };
