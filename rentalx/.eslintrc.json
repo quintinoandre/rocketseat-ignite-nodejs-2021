@@ -27,6 +27,7 @@
 		"import/extensions": "off",
 		"no-useless-constructor": "off",
 		"no-empty-function": "off",
+		"class-methods-use-this": "off",
 		"@typescript-eslint/naming-convention": [
 			"error",
 			{
@@ -36,6 +37,18 @@
 					"regex": "^I[A-Z]",
 					"match": true
 				}
+			},
+			{
+				"selector": "typeAlias",
+				"format": ["PascalCase"],
+				"custom": {
+					"regex": "^T[A-Z]",
+					"match": true
+				}
+			},
+			{
+				"selector": "class",
+				"format": ["PascalCase"]
 			}
 		],
 		"unused-imports/no-unused-imports": "error",

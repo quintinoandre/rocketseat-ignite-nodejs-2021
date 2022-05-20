@@ -5,8 +5,8 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "tsnd --inspect --transpile-only --ignore-watch node_modules --respawn .",
-		"lint": "eslint ./",
-		"lintFix": "eslint ./ --fix",
+		"lint": "eslint ./src/**/**",
+		"lintFix": "eslint ./src/**/** --fix",
 		"format": "prettier --write \"**/*.{js,json,md,ts}\""
 	},
 	"dependencies": {
