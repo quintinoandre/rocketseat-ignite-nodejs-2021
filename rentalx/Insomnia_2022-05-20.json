@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-05-20T13:40:28.695Z",
+	"__export_date": "2022-05-20T17:17:35.669Z",
 	"__export_source": "insomnia.desktop.app:v2022.3.0",
 	"resources": [
 		{
 			"_id": "req_9bd79d19bd5046e8947b15fbb6d94492",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653053862027,
+			"modified": 1653066823516,
 			"created": 1652998940525,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "Create",
@@ -39,12 +39,17 @@
 		{
 			"_id": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653053862019,
+			"modified": 1653066823505,
 			"created": 1652998896661,
 			"name": "Categories",
 			"description": "",
-			"environment": { "resource_categories": "categories" },
-			"environmentPropertyOrder": { "&": ["resource_categories"] },
+			"environment": {
+				"resource_categories": "categories",
+				"resource_import": "import"
+			},
+			"environmentPropertyOrder": {
+				"&": ["resource_categories", "resource_import"]
+			},
 			"metaSortKey": 0,
 			"_type": "request_group"
 		},
@@ -59,17 +64,35 @@
 			"_type": "workspace"
 		},
 		{
-			"_id": "req_39fe31adf5de41f498eb1e6eb36c691b",
+			"_id": "req_0b349eec2d1f438ea4331a572c12fabe",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653053862028,
-			"created": 1653010250934,
-			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
-			"name": "List",
+			"modified": 1653066888153,
+			"created": 1653066786347,
+			"url": "{{ _.baseURL }}/{{ _.resource_categories }}/{{ _.resource_import }}",
+			"name": "import",
 			"description": "",
-			"method": "GET",
-			"body": {},
+			"method": "POST",
+			"body": {
+				"mimeType": "multipart/form-data",
+				"params": [
+					{
+						"id": "pair_ba37b90482ee4f5ebeb689c66d381b2e",
+						"name": "file",
+						"value": "",
+						"description": "",
+						"type": "file",
+						"fileName": "C:\\Users\\RODAZI\\Desktop\\1615818549022-attachment.csv"
+					}
+				]
+			},
 			"parameters": [],
-			"headers": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "multipart/form-data",
+					"id": "pair_db6c150adb1c4ee394071c06d8136744"
+				}
+			],
 			"authentication": {},
 			"metaSortKey": 100,
 			"isPrivate": false,
@@ -82,9 +105,32 @@
 			"_type": "request"
 		},
 		{
+			"_id": "req_39fe31adf5de41f498eb1e6eb36c691b",
+			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
+			"modified": 1653066823516,
+			"created": 1653010250934,
+			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
+			"name": "List",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 200,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
 			"_id": "req_d365c4605d344a9f98d08cddf017d58f",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653053989774,
+			"modified": 1653066823517,
 			"created": 1653053859261,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "Create",
@@ -116,7 +162,7 @@
 		{
 			"_id": "fld_50c40bfb2e954d5987e664fc045e7c4a",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653053878828,
+			"modified": 1653066823505,
 			"created": 1653053859255,
 			"name": "Specifications",
 			"description": "",
@@ -128,7 +174,7 @@
 		{
 			"_id": "req_ee89ca4103a940bfbe17d21591d4d38a",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653053893469,
+			"modified": 1653066823517,
 			"created": 1653053859269,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "List",
