@@ -5,7 +5,7 @@ import { CreateCategoryService } from '../services';
 
 const categoriesRoutes = Router();
 
-const categoriesRepository = new CategoriesRepository([]);
+const categoriesRepository = new CategoriesRepository();
 
 categoriesRoutes.post('/', (request, response) => {
 	const {
