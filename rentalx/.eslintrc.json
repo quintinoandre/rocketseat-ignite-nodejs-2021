@@ -23,6 +23,19 @@
 		"no-console": "off",
 		"import/prefer-default-export": "off",
 		"import/no-unresolved": "off",
+		"lines-between-class-members": "off",
+		"import/extensions": "off",
+		"@typescript-eslint/naming-convention": [
+			"error",
+			{
+				"selector": "interface",
+				"format": ["PascalCase"],
+				"custom": {
+					"regex": "^I[A-Z]",
+					"match": true
+				}
+			}
+		],
 		"unused-imports/no-unused-imports": "error",
 		"unused-imports/no-unused-vars": [
 			"warn",
