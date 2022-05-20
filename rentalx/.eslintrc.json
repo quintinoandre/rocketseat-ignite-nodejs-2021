@@ -28,6 +28,7 @@
 		"no-useless-constructor": "off",
 		"no-empty-function": "off",
 		"class-methods-use-this": "off",
+		"no-use-before-define": "off",
 		"@typescript-eslint/naming-convention": [
 			"error",
 			{
