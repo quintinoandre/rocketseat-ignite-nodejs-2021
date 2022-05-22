@@ -5,11 +5,7 @@ import {
 } from '../ISpecificationsRepository';
 
 class SpecificationsRepository implements ISpecificationsRepository {
-	private specifications: Array<Specification>;
-
-	constructor() {
-		this.specifications = [];
-	}
+	constructor(private specifications: Array<Specification> = []) {}
 
 	create({ name, description }: ICreateSpecificationDTO): void {
 		const specification = new Specification();
