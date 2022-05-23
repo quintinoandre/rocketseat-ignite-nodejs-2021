@@ -27,12 +27,8 @@ class ImportCategoryUseCase {
 
 					categories.push({ name, description });
 				})
-				.on('end', () => {
-					resolve(categories);
-				})
-				.on('error', (error) => {
-					reject(error);
-				});
+				.on('end', () => resolve(categories))
+				.on('error', (error) => reject(error));
 		});
 	}
 
