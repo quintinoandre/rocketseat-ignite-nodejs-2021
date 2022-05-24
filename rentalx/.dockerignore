@@ -1,0 +1,6 @@
+node_modules
+.git
+.vscode
+Insomnia_2022-05-20.json
+diagram.png
+yarn.lock
