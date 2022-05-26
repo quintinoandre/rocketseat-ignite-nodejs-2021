@@ -1,4 +1,4 @@
-import { Category } from '../model';
+import { Category } from '../entities';
 
 // DTO (Data Transfer Object)
 interface ICreateCategoryDTO {
