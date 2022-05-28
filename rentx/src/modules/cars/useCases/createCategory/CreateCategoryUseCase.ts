@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+import { AppError } from '../../../../erros';
 import { ICreateCategoryDTO } from '../../dtos';
 import { ICategoriesRepository } from '../../repositories';
 
@@ -15,7 +16,7 @@ class CreateCategoryUseCase {
 			data.name
 		);
 
-		if (categoryAlreadyExists) throw new Error('Category already exists');
+		if (categoryAlreadyExists) throw new AppError('Category already exists'); //! Bad Request
 
 		this.categoriesRepository.create({ ...data });
 	}
