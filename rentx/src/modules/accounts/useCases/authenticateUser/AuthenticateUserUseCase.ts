@@ -3,20 +3,11 @@ import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
 import { AppError } from '../../../../erros';
+import {
+	IAuthenticateUserRequestDTO,
+	IAuthenticateUserResponseDTO,
+} from '../../dtos';
 import { IUsersRepository } from '../../repositories';
-
-interface IRequest {
-	email: string;
-	password: string;
-}
-
-interface IResponse {
-	user: {
-		name: string;
-		email: string;
-	};
-	token: string;
-}
 
 @injectable()
 class AuthenticateUserUseCase {
@@ -25,7 +16,9 @@ class AuthenticateUserUseCase {
 		private usersRepository: IUsersRepository
 	) {}
 
-	async execute(data: IRequest): Promise<IResponse> {
+	async execute(
+		data: IAuthenticateUserRequestDTO
+	): Promise<IAuthenticateUserResponseDTO> {
 		const user = await this.usersRepository.findByEmail(data.email);
 
 		if (!user) throw new AppError('Email or password incorrect'); //! Bad Request
@@ -39,7 +32,7 @@ class AuthenticateUserUseCase {
 			expiresIn: '1d',
 		});
 
-		const tokenReturn: IResponse = {
+		const tokenReturn: IAuthenticateUserResponseDTO = {
 			token,
 			user: { name: user.name, email: user.email },
 		};

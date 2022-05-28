@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-05-28T13:32:59.543Z",
+	"__export_date": "2022-05-28T15:13:21.652Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_cd4131c3c35a4e03bd1979831d54096b",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1653744239857,
+			"modified": 1653747933840,
 			"created": 1653700408764,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}",
 			"name": "Create User",
@@ -39,16 +39,17 @@
 		{
 			"_id": "fld_1ac548f359bf4126ac75b31255d5c7f5",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653705396311,
+			"modified": 1653748326230,
 			"created": 1653700408748,
 			"name": "Accounts",
 			"description": "",
 			"environment": {
 				"resource_users": "users",
-				"resource_sessions": "sessions"
+				"resource_sessions": "sessions",
+				"resource_avatar": "avatar"
 			},
 			"environmentPropertyOrder": {
-				"&": ["resource_users", "resource_sessions"]
+				"&": ["resource_users", "resource_sessions", "resource_avatar"]
 			},
 			"metaSortKey": 0,
 			"_type": "request_group"
@@ -66,7 +67,7 @@
 		{
 			"_id": "req_874272b7db334f859f998ecc780e9b28",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1653705796701,
+			"modified": 1653750114663,
 			"created": 1653705393655,
 			"url": "{{ _.baseURL }}/{{ _.resource_sessions }}",
 			"name": "Session",
@@ -96,9 +97,53 @@
 			"_type": "request"
 		},
 		{
+			"_id": "req_8845d61eeac3431b9eb7079d2b4fa2ed",
+			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
+			"modified": 1653749988922,
+			"created": 1653747922780,
+			"url": "{{ _.baseURL }}/{{ _.resource_users }}/{{ _.resource_avatar }}",
+			"name": "Update Avatar",
+			"description": "",
+			"method": "PATCH",
+			"body": {
+				"mimeType": "multipart/form-data",
+				"params": [
+					{
+						"id": "pair_5139e7b6bb984241b27d7c5b2377a8b1",
+						"name": "avatar",
+						"value": "",
+						"description": "",
+						"type": "file",
+						"fileName": "/home/andre/Documentos/avatar.png"
+					}
+				]
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "multipart/form-data",
+					"id": "pair_a9b523bd37fc4c278f17ea19fff4ee79"
+				}
+			],
+			"authentication": {
+				"type": "bearer",
+				"token": "{% response 'body', 'req_874272b7db334f859f998ecc780e9b28', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}"
+			},
+			"metaSortKey": 200,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
 			"_id": "req_9bd79d19bd5046e8947b15fbb6d94492",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653705396323,
+			"modified": 1653750116006,
 			"created": 1652998940525,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "Create",
@@ -130,7 +175,7 @@
 		{
 			"_id": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653705396311,
+			"modified": 1653747933736,
 			"created": 1652998896661,
 			"name": "Categories",
 			"description": "",
@@ -147,7 +192,7 @@
 		{
 			"_id": "req_0b349eec2d1f438ea4331a572c12fabe",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653705396323,
+			"modified": 1653750624141,
 			"created": 1653066786347,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}/{{ _.resource_import }}",
 			"name": "import",
@@ -162,7 +207,7 @@
 						"value": "",
 						"description": "",
 						"type": "file",
-						"fileName": "/home/andre/Documentos/1615818549022-attachment.csv"
+						"fileName": "/home/andre/Documentos/1615818549022-attachment2.csv"
 					}
 				]
 			},
@@ -174,7 +219,7 @@
 					"id": "pair_db6c150adb1c4ee394071c06d8136744"
 				}
 			],
-			"authentication": {},
+			"authentication": { "type": "bearer", "token": "" },
 			"metaSortKey": 100,
 			"isPrivate": false,
 			"settingStoreCookies": true,
@@ -188,7 +233,7 @@
 		{
 			"_id": "req_39fe31adf5de41f498eb1e6eb36c691b",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653705396323,
+			"modified": 1653747933841,
 			"created": 1653010250934,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "List",
@@ -211,7 +256,7 @@
 		{
 			"_id": "req_d365c4605d344a9f98d08cddf017d58f",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653742601787,
+			"modified": 1653748345290,
 			"created": 1653053859261,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "Create",
@@ -247,7 +292,7 @@
 		{
 			"_id": "fld_50c40bfb2e954d5987e664fc045e7c4a",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653705396311,
+			"modified": 1653747933736,
 			"created": 1653053859255,
 			"name": "Specifications",
 			"description": "",
@@ -259,7 +304,7 @@
 		{
 			"_id": "req_ee89ca4103a940bfbe17d21591d4d38a",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653705396323,
+			"modified": 1653747933845,
 			"created": 1653053859269,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "List",
