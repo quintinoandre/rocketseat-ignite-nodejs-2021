@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-05-28T02:45:28.718Z",
+	"__export_date": "2022-05-28T13:32:59.543Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_cd4131c3c35a4e03bd1979831d54096b",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1653705795971,
+			"modified": 1653744239857,
 			"created": 1653700408764,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}",
 			"name": "Create User",
@@ -211,7 +211,7 @@
 		{
 			"_id": "req_d365c4605d344a9f98d08cddf017d58f",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653705396323,
+			"modified": 1653742601787,
 			"created": 1653053859261,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "Create",
@@ -219,7 +219,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"Automatic transmission\",\n\t\"description\": \"Car with automatic transmission\"\n}"
+				"text": "{\n\t\"name\": \"4 dors\",\n\t\"description\": \"Car with 4 dors\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -229,7 +229,11 @@
 					"id": "pair_d0e14e933261405e8b6199f4c9ae3719"
 				}
 			],
-			"authentication": {},
+			"authentication": {
+				"type": "bearer",
+				"token": "{% response 'body', 'req_874272b7db334f859f998ecc780e9b28', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}",
+				"disabled": true
+			},
 			"metaSortKey": 0,
 			"isPrivate": false,
 			"settingStoreCookies": true,
