@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-05-20T17:17:35.669Z",
-	"__export_source": "insomnia.desktop.app:v2022.3.0",
+	"__export_date": "2022-05-28T01:25:47.915Z",
+	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_9bd79d19bd5046e8947b15fbb6d94492",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653066823516,
+			"modified": 1653701103617,
 			"created": 1652998940525,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "Create",
@@ -15,7 +15,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"SUV\",\n\t\"description\": \"Category of SUV car\"\n}"
+				"text": "{\n\t\"name\": \"Sedan\",\n\t\"description\": \"Category of Sedan car\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -39,7 +39,7 @@
 		{
 			"_id": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653066823505,
+			"modified": 1653700411122,
 			"created": 1652998896661,
 			"name": "Categories",
 			"description": "",
@@ -66,7 +66,7 @@
 		{
 			"_id": "req_0b349eec2d1f438ea4331a572c12fabe",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653066888153,
+			"modified": 1653700411135,
 			"created": 1653066786347,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}/{{ _.resource_import }}",
 			"name": "import",
@@ -81,7 +81,7 @@
 						"value": "",
 						"description": "",
 						"type": "file",
-						"fileName": "C:\\Users\\RODAZI\\Desktop\\1615818549022-attachment.csv"
+						"fileName": "/home/andre/Documentos/1615818549022-attachment.csv"
 					}
 				]
 			},
@@ -107,7 +107,7 @@
 		{
 			"_id": "req_39fe31adf5de41f498eb1e6eb36c691b",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653066823516,
+			"modified": 1653700411135,
 			"created": 1653010250934,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "List",
@@ -130,7 +130,7 @@
 		{
 			"_id": "req_d365c4605d344a9f98d08cddf017d58f",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653066823517,
+			"modified": 1653700411135,
 			"created": 1653053859261,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "Create",
@@ -162,7 +162,7 @@
 		{
 			"_id": "fld_50c40bfb2e954d5987e664fc045e7c4a",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653066823505,
+			"modified": 1653700411123,
 			"created": 1653053859255,
 			"name": "Specifications",
 			"description": "",
@@ -174,7 +174,7 @@
 		{
 			"_id": "req_ee89ca4103a940bfbe17d21591d4d38a",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653066823517,
+			"modified": 1653700411136,
 			"created": 1653053859269,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "List",
@@ -193,6 +193,50 @@
 			"settingRebuildPath": true,
 			"settingFollowRedirects": "global",
 			"_type": "request"
+		},
+		{
+			"_id": "req_cd4131c3c35a4e03bd1979831d54096b",
+			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
+			"modified": 1653700562239,
+			"created": 1653700408764,
+			"url": "{{ _.baseURL }}/{{ _.resource_users }}",
+			"name": "Create",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Dani\",\n\t\"username\": \"dani\",\n\t\"password\": \"1234\",\n\t\"email\": \"dani@rocketseat.com.br\",\n\t\"driver_license\": \"123456\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_d0e14e933261405e8b6199f4c9ae3719"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 0,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_1ac548f359bf4126ac75b31255d5c7f5",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1653700430188,
+			"created": 1653700408748,
+			"name": "Users",
+			"description": "",
+			"environment": { "resource_users": "users" },
+			"environmentPropertyOrder": { "&": ["resource_users"] },
+			"metaSortKey": 200,
+			"_type": "request_group"
 		},
 		{
 			"_id": "env_e48984d266b549193cc4d587b1b0af3d4da4f753",

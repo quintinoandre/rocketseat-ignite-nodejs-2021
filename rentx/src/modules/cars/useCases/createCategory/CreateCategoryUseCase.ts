@@ -10,14 +10,14 @@ class CreateCategoryUseCase {
 		private categoriesRepository: ICategoriesRepository
 	) {}
 
-	async execute({ name, description }: ICreateCategoryDTO): Promise<void> {
+	async execute(data: ICreateCategoryDTO): Promise<void> {
 		const categoryAlreadyExists = await this.categoriesRepository.findByName(
-			name
+			data.name
 		);
 
 		if (categoryAlreadyExists) throw new Error('Category already exists');
 
-		this.categoriesRepository.create({ name, description });
+		this.categoriesRepository.create({ ...data });
 	}
 }
 

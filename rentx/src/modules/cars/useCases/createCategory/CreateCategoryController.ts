@@ -5,13 +5,11 @@ import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
 class CreateCategoryController {
 	async handle(request: Request, response: Response): Promise<Response> {
-		const {
-			body: { name, description },
-		} = request;
+		const { body: data } = request;
 
 		const createCategoryUseCase = container.resolve(CreateCategoryUseCase);
 
-		await createCategoryUseCase.execute({ name, description });
+		await createCategoryUseCase.execute({ ...data });
 
 		return response.sendStatus(201); //* Created
 	}

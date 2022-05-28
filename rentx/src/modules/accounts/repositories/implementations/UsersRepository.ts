@@ -7,20 +7,8 @@ import { IUsersRepository } from '../IUsersRepository';
 class UsersRepository implements IUsersRepository {
 	constructor(private repository: Repository<User> = getRepository(User)) {}
 
-	async create({
-		name,
-		username,
-		password,
-		email,
-		driver_license,
-	}: ICreateUserDTO): Promise<void> {
-		const user = this.repository.create({
-			name,
-			username,
-			password,
-			email,
-			driver_license,
-		});
+	async create(data: ICreateUserDTO): Promise<void> {
+		const user = this.repository.create({ ...data });
 
 		await this.repository.save(user);
 	}
