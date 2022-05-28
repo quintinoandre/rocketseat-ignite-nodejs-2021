@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-05-28T01:25:47.915Z",
+	"__export_date": "2022-05-28T01:36:47.019Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
@@ -197,7 +197,7 @@
 		{
 			"_id": "req_cd4131c3c35a4e03bd1979831d54096b",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1653700562239,
+			"modified": 1653701629529,
 			"created": 1653700408764,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}",
 			"name": "Create",
@@ -205,7 +205,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"Dani\",\n\t\"username\": \"dani\",\n\t\"password\": \"1234\",\n\t\"email\": \"dani@rocketseat.com.br\",\n\t\"driver_license\": \"123456\"\n}"
+				"text": "{\n\t\"name\": \"Dani\",\n\t\"password\": \"1234\",\n\t\"email\": \"dani@rocketseat.com.br\",\n\t\"driver_license\": \"123456\"\n}"
 			},
 			"parameters": [],
 			"headers": [
