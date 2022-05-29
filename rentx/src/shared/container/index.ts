@@ -3,13 +3,13 @@ import { container } from 'tsyringe';
 import {
 	IUsersRepository,
 	UsersRepository,
-} from '../../modules/accounts/repositories';
+} from '@modules/accounts/repositories';
 import {
 	CategoriesRepository,
 	ICategoriesRepository,
 	ISpecificationsRepository,
 	SpecificationsRepository,
-} from '../../modules/cars/repositories';
+} from '@modules/cars/repositories';
 
 container.registerSingleton<ICategoriesRepository>(
 	'CategoriesRepository',

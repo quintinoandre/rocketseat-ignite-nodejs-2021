@@ -5,7 +5,7 @@ import {
 	CreateCategoryController,
 	ImportCategoryController,
 	ListCategoriesController,
-} from '../modules/cars/useCases';
+} from '@modules/cars/useCases';
 
 const categoriesRoutes = Router();
 

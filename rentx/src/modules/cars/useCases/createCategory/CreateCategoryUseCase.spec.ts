@@ -1,6 +1,7 @@
-import { AppError } from '../../../../erros';
-import { ICreateCategoryDTO } from '../../dtos';
-import { CategoriesRepositoryInMemory } from '../../repositories';
+import { AppError } from '@erros';
+import { ICreateCategoryDTO } from '@modules/cars/dtos';
+import { CategoriesRepositoryInMemory } from '@modules/cars/repositories';
+
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
 let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
