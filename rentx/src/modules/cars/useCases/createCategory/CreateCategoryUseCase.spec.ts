@@ -1,17 +1,45 @@
+import { AppError } from '../../../../erros';
+import { ICreateCategoryDTO } from '../../dtos';
+import { CategoriesRepositoryInMemory } from '../../repositories';
+import { CreateCategoryUseCase } from './CreateCategoryUseCase';
+
+let createCategoryUseCase: CreateCategoryUseCase;
+let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
+
 describe('Create category', () => {
-	it('I hope 2 + 2 will be 4', () => {
-		const sum = 2 + 2;
+	beforeEach(() => {
+		categoriesRepositoryInMemory = new CategoriesRepositoryInMemory();
 
-		const result = 4;
-
-		expect(sum).toBe(result);
+		createCategoryUseCase = new CreateCategoryUseCase(
+			categoriesRepositoryInMemory
+		);
 	});
 
-	it('I hope 2 + 2 is not 5', () => {
-		const sum = 2 + 2;
+	it('should be able to create a new category', async () => {
+		const category: ICreateCategoryDTO = {
+			name: 'Category Test',
+			description: 'Category Description Test',
+		};
 
-		const result = 5;
+		await createCategoryUseCase.execute(category);
 
-		expect(sum).not.toBe(result);
+		const categoryCreated = await categoriesRepositoryInMemory.findByName(
+			category.name
+		);
+
+		expect(categoryCreated).toHaveProperty('id');
+	});
+
+	it('should not be able to create a new category with the same name', async () => {
+		expect(async () => {
+			const category: ICreateCategoryDTO = {
+				name: 'Category Test',
+				description: 'Category Description Test',
+			};
+
+			await createCategoryUseCase.execute(category);
+
+			await createCategoryUseCase.execute(category);
+		}).rejects.toBeInstanceOf(AppError);
 	});
 });
