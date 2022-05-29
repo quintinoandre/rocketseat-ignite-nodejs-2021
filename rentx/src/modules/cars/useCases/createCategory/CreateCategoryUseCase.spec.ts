@@ -3,8 +3,8 @@ import { ICreateCategoryDTO } from '../../dtos';
 import { CategoriesRepositoryInMemory } from '../../repositories';
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
-let createCategoryUseCase: CreateCategoryUseCase;
 let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
+let createCategoryUseCase: CreateCategoryUseCase;
 
 describe('Create category', () => {
 	beforeEach(() => {
