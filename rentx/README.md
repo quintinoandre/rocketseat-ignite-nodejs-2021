@@ -13,9 +13,8 @@
 **RN**
 
 - [ ] It should not be possible to register a car with an existing license plate
-- [ ] It should not be possible to change the license plate of a car already registered
 - [ ] The car must be registered with availability by default
-- [ ] The user responsible for the registration of a car must be an administrator
+- [ ] \*The user responsible for the registration of a car must be an administrator
 
 ---
 
