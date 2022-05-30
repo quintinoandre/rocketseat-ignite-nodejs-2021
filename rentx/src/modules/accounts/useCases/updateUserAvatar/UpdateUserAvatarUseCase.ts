@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 
 import { IUpdateUserAvatarDTO } from '@modules/accounts/dtos';
 import { IUsersRepository } from '@modules/accounts/repositories';
-import { deleteFile } from '@utils';
+import { deleteFile } from '@utils/file';
 
 @injectable()
 class UpdateUserAvatarUseCase {

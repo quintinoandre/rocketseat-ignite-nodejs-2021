@@ -9,7 +9,6 @@
 **FR**
 
 - [ ] It should be possible to register a new car
-- [ ] It must be possible to list all categories
 
 **RN**
 

@@ -6,10 +6,9 @@
 		"baseUrl": "./src",
 		"paths": {
 			"@config/*": ["config/*"],
-			"@erros": ["erros"],
 			"@modules/*": ["modules/*"],
 			"@shared/*": ["shared/*"],
-			"@utils": ["utils"]
+			"@utils/*": ["utils/*"]
 		},
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
