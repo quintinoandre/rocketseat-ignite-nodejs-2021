@@ -7,7 +7,6 @@
 		"paths": {
 			"@config/*": ["config/*"],
 			"@erros": ["erros"],
-			"@middlewares": ["middlewares"],
 			"@modules/*": ["modules/*"],
 			"@shared/*": ["shared/*"],
 			"@utils": ["utils"]

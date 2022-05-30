@@ -1,14 +1,14 @@
 import { container } from 'tsyringe';
 
-import {
-	IUsersRepository,
-	UsersRepository,
-} from '@modules/accounts/repositories';
+import { UsersRepository } from '@modules/accounts/infra';
+import { IUsersRepository } from '@modules/accounts/repositories';
 import {
 	CategoriesRepository,
+	SpecificationsRepository,
+} from '@modules/cars/infra';
+import {
 	ICategoriesRepository,
 	ISpecificationsRepository,
-	SpecificationsRepository,
 } from '@modules/cars/repositories';
 
 container.registerSingleton<ICategoriesRepository>(

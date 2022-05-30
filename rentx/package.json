@@ -1,7 +1,7 @@
 {
 	"name": "rentx",
 	"version": "1.0.0",
-	"main": "src/server.ts",
+	"main": "src/shared/infra/http/server.ts",
 	"license": "MIT",
 	"scripts": {
 		"dev": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn .",

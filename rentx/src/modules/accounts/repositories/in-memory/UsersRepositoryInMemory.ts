@@ -1,5 +1,5 @@
 import { ICreateUserDTO } from '@modules/accounts/dtos';
-import { User } from '@modules/accounts/entities';
+import { User } from '@modules/accounts/infra';
 
 import { IUsersRepository } from '../IUsersRepository';
 
