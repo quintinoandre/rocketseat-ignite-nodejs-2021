@@ -9,6 +9,7 @@
 		"migration:create": "yarn typeorm migration:create -n",
 		"migration:up": "yarn typeorm migration:run",
 		"migration:down": "yarn typeorm migration:revert",
+		"seed:admin": "tsnd src/shared/infra/typeorm/seed/admin.ts",
 		"lint": "eslint ./src/**/**",
 		"lintFix": "eslint ./src/**/** --fix",
 		"format": "prettier --write \"**/*.{js,json,md,ts}\"",
