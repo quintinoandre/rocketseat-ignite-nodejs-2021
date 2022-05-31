@@ -1,10 +1,16 @@
+import { inject, injectable } from 'tsyringe';
+
 import { ICreateCarDTO } from '@modules/cars/dtos';
 import { Car } from '@modules/cars/infra/typeorm/entities';
 import { ICarsRepository } from '@modules/cars/repositories';
 import { AppError } from '@shared/erros';
 
+@injectable()
 class CreateCarUseCase {
-	constructor(private carsRepository: ICarsRepository) {}
+	constructor(
+		@inject('CarsRepository')
+		private carsRepository: ICarsRepository
+	) {}
 
 	async execute(data: ICreateCarDTO): Promise<Car> {
 		const carAlreadyExists = await this.carsRepository.findByLicensePlate(

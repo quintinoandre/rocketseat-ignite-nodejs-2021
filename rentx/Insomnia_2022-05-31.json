@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-05-28T15:13:21.652Z",
+	"__export_date": "2022-05-31T19:23:47.359Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_cd4131c3c35a4e03bd1979831d54096b",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1653747933840,
+			"modified": 1654024603209,
 			"created": 1653700408764,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}",
 			"name": "Create User",
@@ -39,7 +39,7 @@
 		{
 			"_id": "fld_1ac548f359bf4126ac75b31255d5c7f5",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653748326230,
+			"modified": 1654023772810,
 			"created": 1653700408748,
 			"name": "Accounts",
 			"description": "",
@@ -67,7 +67,7 @@
 		{
 			"_id": "req_874272b7db334f859f998ecc780e9b28",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1653750114663,
+			"modified": 1654024567107,
 			"created": 1653705393655,
 			"url": "{{ _.baseURL }}/{{ _.resource_sessions }}",
 			"name": "Session",
@@ -99,7 +99,7 @@
 		{
 			"_id": "req_8845d61eeac3431b9eb7079d2b4fa2ed",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1653749988922,
+			"modified": 1654023772824,
 			"created": 1653747922780,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}/{{ _.resource_avatar }}",
 			"name": "Update Avatar",
@@ -141,9 +141,53 @@
 			"_type": "request"
 		},
 		{
+			"_id": "req_8723b4f98221462ebdb01d1f20061ca8",
+			"parentId": "fld_186cfa0c82c04f9bbd21acc518d12c13",
+			"modified": 1654024738690,
+			"created": 1654023785547,
+			"url": "{{ _.baseURL }}/{{ _.resource_cars }}",
+			"name": "Create",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Audi A3\",\n\t\"description\": \"Beautiful car\",\n\t\"daily_rate\": 140,\n\t\"license_plate\": \"DEF-1212\",\n\t\"fine_amount\": 100,\n\t\"brand\": \"Audi\",\n\t\"category_id\": \"085504e9-bcd2-41d1-9634-e4c5a2ec2cae\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_a7655c9c199e4b379a2054b036a69e76"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1654023785547,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_186cfa0c82c04f9bbd21acc518d12c13",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1654023798027,
+			"created": 1654023770605,
+			"name": "Cars",
+			"description": "",
+			"environment": { "resource_cars": "cars" },
+			"environmentPropertyOrder": { "&": ["resource_cars"] },
+			"metaSortKey": 100,
+			"_type": "request_group"
+		},
+		{
 			"_id": "req_9bd79d19bd5046e8947b15fbb6d94492",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653750116006,
+			"modified": 1654024889422,
 			"created": 1652998940525,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "Create",
@@ -175,7 +219,7 @@
 		{
 			"_id": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653747933736,
+			"modified": 1654023772810,
 			"created": 1652998896661,
 			"name": "Categories",
 			"description": "",
@@ -186,13 +230,13 @@
 			"environmentPropertyOrder": {
 				"&": ["resource_categories", "resource_import"]
 			},
-			"metaSortKey": 100,
+			"metaSortKey": 200,
 			"_type": "request_group"
 		},
 		{
 			"_id": "req_0b349eec2d1f438ea4331a572c12fabe",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653750624141,
+			"modified": 1654023772825,
 			"created": 1653066786347,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}/{{ _.resource_import }}",
 			"name": "import",
@@ -233,7 +277,7 @@
 		{
 			"_id": "req_39fe31adf5de41f498eb1e6eb36c691b",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1653747933841,
+			"modified": 1654023772825,
 			"created": 1653010250934,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "List",
@@ -256,7 +300,7 @@
 		{
 			"_id": "req_d365c4605d344a9f98d08cddf017d58f",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653748345290,
+			"modified": 1654023772826,
 			"created": 1653053859261,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "Create",
@@ -292,19 +336,19 @@
 		{
 			"_id": "fld_50c40bfb2e954d5987e664fc045e7c4a",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1653747933736,
+			"modified": 1654023772810,
 			"created": 1653053859255,
 			"name": "Specifications",
 			"description": "",
 			"environment": { "resource_specifications": "specifications" },
 			"environmentPropertyOrder": { "&": ["resource_specifications"] },
-			"metaSortKey": 200,
+			"metaSortKey": 300,
 			"_type": "request_group"
 		},
 		{
 			"_id": "req_ee89ca4103a940bfbe17d21591d4d38a",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1653747933845,
+			"modified": 1654023772826,
 			"created": 1653053859269,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "List",

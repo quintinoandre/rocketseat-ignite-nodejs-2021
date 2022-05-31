@@ -8,12 +8,12 @@
 
 **FR**
 
-- [ ] It should be possible to register a new car
+- [x] It should be possible to register a new car
 
 **RN**
 
-- [ ] It should not be possible to register a car with an existing license plate
-- [ ] The car must be registered with availability by default
+- [x] It should not be possible to register a car with an existing license plate
+- [x] The car must be registered with availability by default
 - [ ] \*The user responsible for the registration of a car must be an administrator
 
 ---

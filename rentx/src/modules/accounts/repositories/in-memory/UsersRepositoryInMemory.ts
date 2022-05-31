@@ -8,7 +8,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
 	async create(data: ICreateUserDTO): Promise<void> {
 		const user = new User();
 
-		Object.assign(user, { ...data });
+		Object.assign(user, data);
 
 		this.users.push(user);
 	}

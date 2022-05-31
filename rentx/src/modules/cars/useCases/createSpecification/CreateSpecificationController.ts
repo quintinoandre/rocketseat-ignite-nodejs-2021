@@ -11,7 +11,7 @@ class CreateSpecificationController {
 			CreateSpecificationUseCase
 		);
 
-		await createSpecificationUseCase.execute({ ...data });
+		await createSpecificationUseCase.execute(data);
 
 		return response.sendStatus(201); //* Created
 	}

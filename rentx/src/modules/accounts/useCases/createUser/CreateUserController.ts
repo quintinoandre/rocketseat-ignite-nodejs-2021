@@ -9,7 +9,7 @@ class CreateUserController {
 
 		const createUserUseCase = container.resolve(CreateUserUseCase);
 
-		await createUserUseCase.execute({ ...data });
+		await createUserUseCase.execute(data);
 
 		return response.sendStatus(201); //* Created
 	}
