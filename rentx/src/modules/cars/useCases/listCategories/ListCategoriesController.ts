@@ -9,7 +9,7 @@ class ListCategoriesController {
 
 		const categoriesList = await listCategoriesUseCase.execute();
 
-		return response.json(categoriesList);
+		return response.json(categoriesList); //* OK
 	}
 }
 

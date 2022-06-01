@@ -22,14 +22,14 @@
 
 **FR**
 
-- [ ] It should be possible to list all available cars
-- [ ] It must be possible to list all cars available by the category name
-- [ ] It must be possible to list all cars available by the brand name
-- [ ] It must be possible to list all cars available by the car name
+- [x] It should be possible to list all available cars
+- [x] It must be possible to list all cars available by the category name
+- [x] It must be possible to list all cars available by the brand name
+- [x] It must be possible to list all cars available by the car name
 
 **RN**
 
-- [ ] The user does not need to be logged in to list the available cars
+- [x] The user does not need to be logged in to list the available cars
 
 ---
 

@@ -20,16 +20,20 @@ class CarsRepositoryInMemory implements ICarsRepository {
 	}
 
 	async findAvailable(data: IListCarsDTO): Promise<Car[]> {
-		if (data.brand || data.category_id || data.name)
-			return this.cars.filter(
-				(car) =>
-					car.available === true &&
-					((data.brand && car.brand === data.brand) ||
-						(data.category_id && car.category_id === data.category_id) ||
-						(data.name && car.name === data.name))
+		const availableCars = this.cars.filter(({ available }) => !!available);
+
+		if (data.category_id)
+			return availableCars.filter(
+				({ category_id }) => category_id === data.category_id
 			);
 
-		return this.cars.filter((car) => car.available === true);
+		if (data.brand)
+			return availableCars.filter(({ brand }) => brand === data.brand);
+
+		if (data.name)
+			return availableCars.filter(({ name }) => name === data.name);
+
+		return availableCars;
 	}
 }
 
