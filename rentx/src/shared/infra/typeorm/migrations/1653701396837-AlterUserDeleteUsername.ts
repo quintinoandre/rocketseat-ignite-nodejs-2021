@@ -8,10 +8,7 @@ class AlterUserDeleteUsername1653701396837 implements MigrationInterface {
 	public async down(queryRunner: QueryRunner): Promise<void> {
 		await queryRunner.addColumn(
 			'users',
-			new TableColumn({
-				name: 'username',
-				type: 'varchar',
-			})
+			new TableColumn({ name: 'username', type: 'varchar' })
 		);
 	}
 }

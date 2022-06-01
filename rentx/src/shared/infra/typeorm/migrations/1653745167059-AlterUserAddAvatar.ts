@@ -4,11 +4,7 @@ class AlterUserAddAvatar1653745167059 implements MigrationInterface {
 	public async up(queryRunner: QueryRunner): Promise<void> {
 		await queryRunner.addColumn(
 			'users',
-			new TableColumn({
-				name: 'avatar',
-				type: 'varchar',
-				isNullable: true,
-			})
+			new TableColumn({ name: 'avatar', type: 'varchar', isNullable: true })
 		);
 	}
 
