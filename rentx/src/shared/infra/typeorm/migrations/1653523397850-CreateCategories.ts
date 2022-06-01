@@ -13,10 +13,23 @@ class CreateCategories1653523397850 implements MigrationInterface {
 				],
 			})
 		);
+
+		/* await queryRunner.query(`
+		CREATE TABLE IF NOT EXISTS categories (
+			id uuid PRIMARY KEY,
+			name varchar NOT NULL,
+			description varchar NOT NULL,
+			created_at timestamp DEFAULT now() NOT NULL
+		);
+		`); */
 	}
 
 	public async down(queryRunner: QueryRunner): Promise<void> {
 		await queryRunner.dropTable('categories');
+
+		/* await queryRunner.query(`
+		DROP TABLE IF EXISTS categories;
+		`); */
 	}
 }
 

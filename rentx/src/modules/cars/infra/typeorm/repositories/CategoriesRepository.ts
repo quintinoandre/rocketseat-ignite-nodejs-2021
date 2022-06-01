@@ -13,18 +13,41 @@ class CategoriesRepository implements ICategoriesRepository {
 		const category = this.repository.create(data);
 
 		await this.repository.save(category);
+
+		/* const id = uuidV4();
+
+		const { name, description } = data;
+
+		await this.repository.query(`
+		INSERT INTO categories
+		(id, name, description)
+		VALUES
+		('${id}', '${name}', '${description}');
+		`); */
 	}
 
 	async list(): Promise<Category[]> {
 		const categories = await this.repository.find();
 
 		return categories;
+
+		/* const categories = await this.repository.query(`
+		SELECT * FROM categories;
+		`);
+
+		return categories; */
 	}
 
 	async findByName(name: string): Promise<Category> {
 		const category = await this.repository.findOne({ name });
 
 		return category;
+
+		/* const category = await this.repository.query(`
+		SELECT * FROM categories WHERE name = '${name}';
+		`);
+
+		return category; */
 	}
 }
 

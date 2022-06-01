@@ -6,10 +6,20 @@ class AlterUserAddAvatar1653745167059 implements MigrationInterface {
 			'users',
 			new TableColumn({ name: 'avatar', type: 'varchar', isNullable: true })
 		);
+
+		/* await queryRunner.query(`
+		ALTER TABLE users
+		ADD COLUMN avatar varchar;
+		`); */
 	}
 
 	public async down(queryRunner: QueryRunner): Promise<void> {
 		await queryRunner.dropColumn('users', 'avatar');
+
+		/* await queryRunner.query(`
+		ALTER TABLE users
+		DROP COLUMN avatar;
+		`); */
 	}
 }
 

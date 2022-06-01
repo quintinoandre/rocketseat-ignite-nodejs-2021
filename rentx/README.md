@@ -38,8 +38,6 @@
 **FR**
 
 - [ ] It should be possible to register a specification for a car
-- [ ] It should be possible to list all specifications
-- [ ] It should be possible to list all cars
 
 **RN**
 

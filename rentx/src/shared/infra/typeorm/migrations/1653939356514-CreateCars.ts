@@ -29,10 +29,43 @@ class CreateCars1653938018136 implements MigrationInterface {
 				],
 			})
 		);
+
+		/* await queryRunner.query(`
+		CREATE TABLE cars (
+			id uuid PRIMARY KEY,
+			name varchar NOT NULL,
+			description varchar NOT NULL,
+			daily_rate numeric NOT NULL,
+			available boolean DEFAULT true NOT NULL,
+			license_plate varchar NOT NULL,
+			fine_amount numeric NOT NULL,
+			brand varchar NOT NULL,
+			category_id uuid,
+			created_at timestamp DEFAULT now() NOT NULL
+		);
+		`);
+
+		await queryRunner.query(`
+		ALTER TABLE cars
+		ADD CONSTRAINT FKCategoryCar
+		FOREIGN KEY (category_id)
+		REFERENCES categories (id)
+		ON DELETE SET NULL
+		ON UPDATE SET NULL;
+		`); */
 	}
 
 	public async down(queryRunner: QueryRunner): Promise<void> {
 		await queryRunner.dropTable('cars');
+
+		/* await queryRunner.query(`
+		ALTER TABLE cars
+		DROP CONSTRAINT FKCategoryCar;
+		`);
+
+		await queryRunner.query(`
+		DROP TABLE cars;
+		`); */
 	}
 }
 

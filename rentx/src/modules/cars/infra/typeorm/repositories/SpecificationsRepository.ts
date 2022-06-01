@@ -13,12 +13,29 @@ class SpecificationsRepository implements ISpecificationsRepository {
 		const specification = this.repository.create(data);
 
 		await this.repository.save(specification);
+
+		/* const id = uuidV4();
+
+		const { name, description } = data;
+
+		await this.repository.query(`
+		INSERT INTO specifications
+		(id, name, description)
+		VALUES
+		('${id}', '${name}', '${description}');
+		`); */
 	}
 
 	async findByName(name: string): Promise<Specification> {
 		const specification = await this.repository.findOne({ name });
 
 		return specification;
+
+		/* const specification = await this.repository.query(`
+		SELECT * FROM specifications WHERE name = '${name}';
+		`);
+
+		return specification; */
 	}
 }
 

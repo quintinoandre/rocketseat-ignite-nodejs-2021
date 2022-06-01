@@ -13,12 +13,39 @@ class CarsRepository implements ICarsRepository {
 		const result = await this.repository.save(car);
 
 		return result;
+
+		/* const id = uuidV4();
+
+		const {
+			name,
+			description,
+			daily_rate,
+			license_plate,
+			fine_amount,
+			brand,
+			category_id,
+		} = data;
+
+		const [car] = await this.repository.query(`
+		INSERT INTO cars
+		(id, name, description, daily_rate, license_plate, fine_amount, brand, category_id)
+		VALUES
+		('${id}', '${name}', '${description}', '${daily_rate}', '${license_plate}', '${fine_amount}', '${brand}', '${category_id}') RETURNING *;
+		`);
+
+		return car; */
 	}
 
 	async findByLicensePlate(license_plate: string): Promise<Car> {
 		const car = await this.repository.findOne({ license_plate });
 
 		return car;
+
+		/* const car = await this.repository.query(`
+		SELECT * FROM cars WHERE license_plate = '${license_plate}';
+		`);
+
+		return car; */
 	}
 
 	async findAvailable(data: IListCarsDTO): Promise<Car[]> {
@@ -39,6 +66,19 @@ class CarsRepository implements ICarsRepository {
 		const cars = await carsQuery.getMany();
 
 		return cars;
+
+		/* let carsQuery = `SELECT * FROM cars WHERE available = true;`;
+
+		if (data.category_id)
+			carsQuery += ` AND category_id = '${data.category_id}';`;
+
+		if (data.brand) carsQuery += ` AND brand = '${data.brand}';`;
+
+		if (data.name) carsQuery += ` AND name = '${data.name}';`;
+
+		const cars = await this.repository.query(carsQuery);
+
+		return cars; */
 	}
 }
 
