@@ -52,7 +52,6 @@
 **FR**
 
 - [ ] It should be possible to register the image of the car
-- [ ] It should be possible to list all cars
 
 **NFR**
 

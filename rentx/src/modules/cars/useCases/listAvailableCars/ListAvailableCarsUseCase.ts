@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IListCarsDTO } from '@modules/cars/dtos';
+import { IListAvailableCarsDTO } from '@modules/cars/dtos';
 import { Car } from '@modules/cars/infra/typeorm/entities';
 import { ICarsRepository } from '@modules/cars/repositories';
 
@@ -11,7 +11,7 @@ class ListAvailableCarsUseCase {
 		private carsRepository: ICarsRepository
 	) {}
 
-	async execute(data: IListCarsDTO): Promise<Car[]> {
+	async execute(data: IListAvailableCarsDTO): Promise<Car[]> {
 		const cars = await this.carsRepository.findAvailable(data);
 
 		return cars;
