@@ -8,7 +8,7 @@ import { ensureAuthenticated } from '@shared/infra/http/middlewares';
 
 const usersRoutes = Router();
 
-const uploadAvatar = multer(uploadConfig.upload('./tmp/avatar/'));
+const uploadAvatar = multer(uploadConfig.upload('./tmp/avatar'));
 
 usersRoutes.post('/', new CreateUserController().handle);
 

@@ -1,8 +1,8 @@
-import { IUploadCarImageDTO } from '@modules/cars/dtos';
+import { IUploadCarImagesDTO } from '@modules/cars/dtos';
 import { CarImage } from '@modules/cars/infra/typeorm/entities';
 
 interface ICarsImagesRepository {
-	create(data: IUploadCarImageDTO): Promise<CarImage>;
+	create(data: IUploadCarImagesDTO): Promise<CarImage>;
 }
 
 export { ICarsImagesRepository };

@@ -51,16 +51,16 @@
 
 **FR**
 
-- [ ] It should be possible to register the image of the car
+- [x] It should be possible to register the image of the car
 
 **NFR**
 
-- [ ] Use Multer to Upload Files
+- [x] Use Multer to Upload Files
 
 **RN**
 
-- [ ] The user must be able to register more than one image for the same car
-- [ ] The user responsible for the registration of a image must be an administrator
+- [x] The user must be able to register more than one image for the same car
+- [x] The user responsible for the registration of a image must be an administrator
 
 ---
 

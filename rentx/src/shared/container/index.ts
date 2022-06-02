@@ -6,8 +6,10 @@ import {
 	CategoriesRepository,
 	SpecificationsRepository,
 	CarsRepository,
+	CarsImagesRepository,
 } from '@modules/cars/infra/typeorm/repositories';
 import {
+	ICarsImagesRepository,
 	ICarsRepository,
 	ICategoriesRepository,
 	ISpecificationsRepository,
@@ -29,3 +31,8 @@ container.registerSingleton<IUsersRepository>(
 );
 
 container.registerSingleton<ICarsRepository>('CarsRepository', CarsRepository);
+
+container.registerSingleton<ICarsImagesRepository>(
+	'CarsImagesRepository',
+	CarsImagesRepository
+);

@@ -4,4 +4,4 @@ export * from './ICreateCategoryDTO';
 export * from './ICreateSpecificationDTO';
 export * from './IImportCategoryDTO';
 export * from './IListAvailableCarsDTO';
-export * from './IUploadCarImageDTO';
+export * from './IUploadCarImagesDTO';

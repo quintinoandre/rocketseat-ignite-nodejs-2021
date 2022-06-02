@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
-import { IUploadCarImageDTO } from '@modules/cars/dtos';
+import { IUploadCarImagesDTO } from '@modules/cars/dtos';
 import { CarImage } from '@modules/cars/infra/typeorm/entities';
 import { ICarsImagesRepository } from '@modules/cars/repositories';
 
@@ -9,7 +9,7 @@ class CarsImagesRepository implements ICarsImagesRepository {
 		private repository: Repository<CarImage> = getRepository(CarImage)
 	) {}
 
-	async create(data: IUploadCarImageDTO): Promise<CarImage> {
+	async create(data: IUploadCarImagesDTO): Promise<CarImage> {
 		const carImage = this.repository.create(data);
 
 		await this.repository.save(carImage);
