@@ -37,13 +37,13 @@
 
 **FR**
 
-- [ ] It should be possible to register a specification for a car
+- [x] It should be possible to register a specification for a car
 
 **RN**
 
-- [ ] It should not be possible to register a specification for an unregistered car
-- [ ] It should not be possible to register an existing specification for the same car
-- [ ] The user responsible for the registration of a specification must be an administrator
+- [x] It should not be possible to register a specification for an unregistered car
+- [x] It should not be possible to register an existing specification for the same car
+- [x] The user responsible for the registration of a specification must be an administrator
 
 ---
 

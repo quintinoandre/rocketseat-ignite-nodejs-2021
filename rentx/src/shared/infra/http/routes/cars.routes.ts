@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { CreateCarController } from '@modules/cars/useCases/createCar';
+import { CreateCarSpecificationController } from '@modules/cars/useCases/createCarSpecification';
 import { ListAvailableCarsController } from '@modules/cars/useCases/listAvailableCars';
 import {
 	ensureAdmin,
@@ -17,5 +18,12 @@ carsRoutes.post(
 );
 
 carsRoutes.get('/available', new ListAvailableCarsController().handle);
+
+carsRoutes.post(
+	'/specifications/:id',
+	ensureAuthenticated,
+	ensureAdmin,
+	new CreateCarSpecificationController().handle
+);
 
 export { carsRoutes };

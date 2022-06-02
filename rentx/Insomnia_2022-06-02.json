@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-06-01T02:15:51.754Z",
+	"__export_date": "2022-06-02T02:38:12.958Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_0c93e839e9a6452a821f8a0590373b6d",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1654049399273,
+			"modified": 1654136925000,
 			"created": 1654032651507,
 			"url": "{{ _.baseURL }}/{{ _.resource_sessions }}",
 			"name": "Admin Session",
@@ -39,7 +39,7 @@
 		{
 			"_id": "fld_1ac548f359bf4126ac75b31255d5c7f5",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654049399259,
+			"modified": 1654136594472,
 			"created": 1653700408748,
 			"name": "Accounts",
 			"description": "",
@@ -67,7 +67,7 @@
 		{
 			"_id": "req_cd4131c3c35a4e03bd1979831d54096b",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1654049399273,
+			"modified": 1654136928875,
 			"created": 1653700408764,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}",
 			"name": "Create User",
@@ -99,7 +99,7 @@
 		{
 			"_id": "req_8845d61eeac3431b9eb7079d2b4fa2ed",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1654049399273,
+			"modified": 1654136954922,
 			"created": 1653747922780,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}/{{ _.resource_avatar }}",
 			"name": "Update Avatar",
@@ -114,7 +114,8 @@
 						"value": "",
 						"description": "",
 						"type": "file",
-						"fileName": "/home/andre/Documentos/avatar.png"
+						"fileName": "/home/andre/Documentos/avatar.png",
+						"disabled": false
 					}
 				]
 			},
@@ -128,7 +129,7 @@
 			],
 			"authentication": {
 				"type": "bearer",
-				"token": "{% response 'body', 'req_874272b7db334f859f998ecc780e9b28', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}"
+				"token": "{% response 'body', 'req_874272b7db334f859f998ecc780e9b28', 'b64::JC50b2tlbg==::46b', 'always', 86400 %}"
 			},
 			"metaSortKey": 200,
 			"isPrivate": false,
@@ -143,7 +144,7 @@
 		{
 			"_id": "req_874272b7db334f859f998ecc780e9b28",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1654049399273,
+			"modified": 1654136957269,
 			"created": 1653705393655,
 			"url": "{{ _.baseURL }}/{{ _.resource_sessions }}",
 			"name": "User Session",
@@ -175,15 +176,15 @@
 		{
 			"_id": "req_8723b4f98221462ebdb01d1f20061ca8",
 			"parentId": "fld_186cfa0c82c04f9bbd21acc518d12c13",
-			"modified": 1654049399273,
+			"modified": 1654136965368,
 			"created": 1654023785547,
 			"url": "{{ _.baseURL }}/{{ _.resource_cars }}",
-			"name": "Create",
+			"name": "Create Car",
 			"description": "",
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"Audi A1\",\n\t\"description\": \"Car with space\",\n\t\"daily_rate\": 110,\n\t\"license_plate\": \"DEF-1234\",\n\t\"fine_amount\": 100,\n\t\"brand\": \"Audi\",\n\t\"category_id\": \"085504e9-bcd2-41d1-9634-e4c5a2ec2cae\"\n}"
+				"text": "{\n\t\"name\": \"Audi A3\",\n\t\"description\": \"Great car\",\n\t\"daily_rate\": 130,\n\t\"license_plate\": \"DEF-1111\",\n\t\"fine_amount\": 110,\n\t\"brand\": \"Audi\",\n\t\"category_id\": \"a54279a2-63ca-4ba4-866c-2eeb94c5d978\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -195,7 +196,7 @@
 			],
 			"authentication": {
 				"type": "bearer",
-				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}"
+				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'always', 86400 %}"
 			},
 			"metaSortKey": 0,
 			"isPrivate": false,
@@ -210,24 +211,60 @@
 		{
 			"_id": "fld_186cfa0c82c04f9bbd21acc518d12c13",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654049515919,
+			"modified": 1654137358764,
 			"created": 1654023770605,
 			"name": "Cars",
 			"description": "",
 			"environment": {
 				"resource_cars": "cars",
-				"resource_available": "available"
+				"resource_available": "available",
+				"resource_specifications": "specifications"
 			},
 			"environmentPropertyOrder": {
-				"&": ["resource_cars", "resource_available"]
+				"&": ["resource_cars", "resource_available", "resource_specifications"]
 			},
 			"metaSortKey": 100,
 			"_type": "request_group"
 		},
 		{
+			"_id": "req_2e539c1f74ab437ab45b5e2aeeec5a54",
+			"parentId": "fld_186cfa0c82c04f9bbd21acc518d12c13",
+			"modified": 1654137460756,
+			"created": 1654136580065,
+			"url": "{{ _.baseURL }}/{{ _.resource_cars }}/{{ _.resource_specifications }}/{% response 'body', 'req_3cef4299337240b4b3d03c01f80c076b', 'b64::JFswXS5pZA==::46b', 'always', 60 %}",
+			"name": "Create Specifications",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"specifications_id\": [\n\t\t\"9f423c07-c2d5-4794-9775-e10e3de4cd4c\",\n\t\t\"f5c71ff4-e454-4f4c-a0dd-c52f35c77092\"\n\t]\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_2fcf08d18ca84e8b8663de3d0bc3f5c3"
+				}
+			],
+			"authentication": {
+				"type": "bearer",
+				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'always', 86400 %}"
+			},
+			"metaSortKey": 100,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
 			"_id": "req_3cef4299337240b4b3d03c01f80c076b",
 			"parentId": "fld_186cfa0c82c04f9bbd21acc518d12c13",
-			"modified": 1654049737087,
+			"modified": 1654136594487,
 			"created": 1654049389477,
 			"url": "{{ _.baseURL }}/{{ _.resource_cars }}/{{ _.resource_available }}",
 			"name": "List Available",
@@ -259,7 +296,7 @@
 			],
 			"headers": [],
 			"authentication": {},
-			"metaSortKey": 100,
+			"metaSortKey": 200,
 			"isPrivate": false,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
@@ -272,7 +309,7 @@
 		{
 			"_id": "req_9bd79d19bd5046e8947b15fbb6d94492",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1654049399274,
+			"modified": 1654136984673,
 			"created": 1652998940525,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "Create",
@@ -292,7 +329,7 @@
 			],
 			"authentication": {
 				"type": "bearer",
-				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}"
+				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'always', 86400 %}"
 			},
 			"metaSortKey": 0,
 			"isPrivate": false,
@@ -307,7 +344,7 @@
 		{
 			"_id": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654049399259,
+			"modified": 1654136594472,
 			"created": 1652998896661,
 			"name": "Categories",
 			"description": "",
@@ -324,7 +361,7 @@
 		{
 			"_id": "req_0b349eec2d1f438ea4331a572c12fabe",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1654049399274,
+			"modified": 1654136992378,
 			"created": 1653066786347,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}/{{ _.resource_import }}",
 			"name": "import",
@@ -353,7 +390,7 @@
 			],
 			"authentication": {
 				"type": "bearer",
-				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}"
+				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'always', 86400 %}"
 			},
 			"metaSortKey": 100,
 			"isPrivate": false,
@@ -368,7 +405,7 @@
 		{
 			"_id": "req_39fe31adf5de41f498eb1e6eb36c691b",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1654049399274,
+			"modified": 1654136594489,
 			"created": 1653010250934,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "List",
@@ -391,7 +428,7 @@
 		{
 			"_id": "req_d365c4605d344a9f98d08cddf017d58f",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1654049399274,
+			"modified": 1654137065763,
 			"created": 1653053859261,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "Create",
@@ -399,7 +436,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"4 dors\",\n\t\"description\": \"Car with 4 dors\"\n}"
+				"text": "{\n\t\"name\": \"Manual\",\n\t\"description\": \"Carro Manual\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -411,7 +448,7 @@
 			],
 			"authentication": {
 				"type": "bearer",
-				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'when-expired', 86400 %}",
+				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'always', 86400 %}",
 				"disabled": false
 			},
 			"metaSortKey": 0,
@@ -427,7 +464,7 @@
 		{
 			"_id": "fld_50c40bfb2e954d5987e664fc045e7c4a",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654049399260,
+			"modified": 1654136594472,
 			"created": 1653053859255,
 			"name": "Specifications",
 			"description": "",
@@ -439,7 +476,7 @@
 		{
 			"_id": "req_ee89ca4103a940bfbe17d21591d4d38a",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1654049399274,
+			"modified": 1654136594489,
 			"created": 1653053859269,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "List",

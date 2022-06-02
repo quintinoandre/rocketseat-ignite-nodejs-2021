@@ -9,21 +9,25 @@ class SpecificationsRepository implements ISpecificationsRepository {
 		private repository: Repository<Specification> = getRepository(Specification)
 	) {}
 
-	async create(data: ICreateSpecificationDTO): Promise<void> {
+	async create(data: ICreateSpecificationDTO): Promise<Specification> {
 		const specification = this.repository.create(data);
 
-		await this.repository.save(specification);
+		const result = await this.repository.save(specification);
+
+		return result;
 
 		/* const id = uuidV4();
 
 		const { name, description } = data;
 
-		await this.repository.query(`
+		const [specification] = await this.repository.query(`
 		INSERT INTO specifications
 		(id, name, description)
 		VALUES
 		('${id}', '${name}', '${description}');
-		`); */
+		`) RETURNING *;
+
+		return specification; */
 	}
 
 	async findByName(name: string): Promise<Specification> {
@@ -36,6 +40,18 @@ class SpecificationsRepository implements ISpecificationsRepository {
 		`);
 
 		return specification; */
+	}
+
+	async findByIds(ids: string[]): Promise<Specification[]> {
+		const specifications = await this.repository.findByIds(ids);
+
+		return specifications;
+
+		/* const specifications = await this.repository.query(`
+		SELECT * FROM specifications WHERE id IN (${ids.join(', ')});
+		`);
+
+		return specifications; */
 	}
 }
 
