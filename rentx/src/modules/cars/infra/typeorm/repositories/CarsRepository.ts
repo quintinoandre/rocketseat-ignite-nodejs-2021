@@ -24,13 +24,14 @@ class CarsRepository implements ICarsRepository {
 			fine_amount,
 			brand,
 			category_id,
+			specifications,
 		} = data;
 
 		const [car] = await this.repository.query(`
 		INSERT INTO cars
-		(id, name, description, daily_rate, license_plate, fine_amount, brand, category_id)
+		(id, name, description, daily_rate, license_plate, fine_amount, brand, category_id, specifications)
 		VALUES
-		('${id}', '${name}', '${description}', '${daily_rate}', '${license_plate}', '${fine_amount}', '${brand}', '${category_id}') RETURNING *;
+		('${id}', '${name}', '${description}', '${daily_rate}', '${license_plate}', '${fine_amount}', '${brand}', '${category_id}', `${specifications}`) RETURNING *;
 		`);
 
 		return car; */
@@ -79,6 +80,18 @@ class CarsRepository implements ICarsRepository {
 		const cars = await this.repository.query(carsQuery);
 
 		return cars; */
+	}
+
+	async findById(id: string): Promise<Car> {
+		const car = await this.repository.findOne(id);
+
+		return car;
+
+		/* const car = await this.repository.query(`
+		SELECT * FROM cars WHERE id = '${id}';
+		`);
+
+		return car; */
 	}
 }
 
