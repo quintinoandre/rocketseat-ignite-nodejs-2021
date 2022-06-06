@@ -68,10 +68,11 @@
 
 **FR**
 
-- [ ] It should be possible to register a rental
+- [x] It should be possible to register a rental
 
 **RN**
 
-- [ ] The rent must have a minimum duration of 24 hours
-- [ ] It should not be possible to register a new rent if there is already an open to the same user
-- [ ] It should not be possible to register a new rent if there is already an open to the same car
+- [x] The rent must have a minimum duration of 24 hours
+- [x] It should not be possible to register a new rent if there is already an open to the same user
+- [x] It should not be possible to register a new rent if there is already an open to the same car
+- [x] The user must be logged in the application

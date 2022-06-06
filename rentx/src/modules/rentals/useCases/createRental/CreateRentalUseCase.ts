@@ -1,12 +1,17 @@
+import { injectable, inject } from 'tsyringe';
+
 import { ICreateRentalDTO } from '@modules/rentals/dtos';
 import { Rental } from '@modules/rentals/infra/typeorm/entities';
 import { IRentalsRepository } from '@modules/rentals/repositories';
 import { IDateProvider } from '@shared/container/providers/DateProvider';
 import { AppError } from '@shared/erros';
 
+@injectable()
 class CreateRentalUseCase {
 	constructor(
+		@inject('RentalsRepository')
 		private rentalsRepository: IRentalsRepository,
+		@inject('DayjsDateProvider')
 		private dateProvider: IDateProvider
 	) {}
 
@@ -28,7 +33,7 @@ class CreateRentalUseCase {
 
 		const compare = this.dateProvider.compareInHours(
 			dateNow,
-			data.expect_return_date
+			data.expected_return_date
 		);
 
 		if (compare < MINIMUM_RENTAL_TIME)

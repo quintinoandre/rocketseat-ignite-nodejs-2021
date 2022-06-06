@@ -44,7 +44,8 @@ class CategoriesRepository implements ICategoriesRepository {
 		return category;
 
 		/* const category = await this.repository.query(`
-		SELECT * FROM categories WHERE name = '${name}';
+		SELECT * FROM categories
+		WHERE name = '${name}';
 		`);
 
 		return category; */

@@ -36,7 +36,8 @@ class SpecificationsRepository implements ISpecificationsRepository {
 		return specification;
 
 		/* const specification = await this.repository.query(`
-		SELECT * FROM specifications WHERE name = '${name}';
+		SELECT * FROM specifications
+		WHERE name = '${name}';
 		`);
 
 		return specification; */
@@ -48,7 +49,8 @@ class SpecificationsRepository implements ISpecificationsRepository {
 		return specifications;
 
 		/* const specifications = await this.repository.query(`
-		SELECT * FROM specifications WHERE id IN (${ids.join(', ')});
+		SELECT * FROM specifications
+		WHERE id IN (${ids.join(', ')});
 		`);
 
 		return specifications; */

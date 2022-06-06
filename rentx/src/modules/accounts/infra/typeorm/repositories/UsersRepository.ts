@@ -30,7 +30,8 @@ class UsersRepository implements IUsersRepository {
 		return user;
 
 		/* const user = await this.repository.query(`
-		SELECT * FROM users WHERE email = '${email}';
+		SELECT * FROM users
+		WHERE email = '${email}';
 		`);
 
 		return user; */
@@ -42,7 +43,8 @@ class UsersRepository implements IUsersRepository {
 		return user;
 
 		/* const user = await this.repository.query(`
-		SELECT * FROM users WHERE id = '${id}';
+		SELECT * FROM users
+		WHERE id = '${id}';
 		`);
 
 		return user; */

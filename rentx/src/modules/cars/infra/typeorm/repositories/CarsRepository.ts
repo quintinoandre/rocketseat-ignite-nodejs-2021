@@ -43,7 +43,8 @@ class CarsRepository implements ICarsRepository {
 		return car;
 
 		/* const car = await this.repository.query(`
-		SELECT * FROM cars WHERE license_plate = '${license_plate}';
+		SELECT * FROM cars
+		WHERE license_plate = '${license_plate}';
 		`);
 
 		return car; */
@@ -88,7 +89,8 @@ class CarsRepository implements ICarsRepository {
 		return car;
 
 		/* const car = await this.repository.query(`
-		SELECT * FROM cars WHERE id = '${id}';
+		SELECT * FROM cars
+		WHERE id = '${id}';
 		`);
 
 		return car; */
