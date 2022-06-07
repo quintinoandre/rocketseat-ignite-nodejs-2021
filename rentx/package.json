@@ -13,7 +13,7 @@
 		"lint": "eslint ./src/**/**",
 		"lintFix": "eslint ./src/**/** --fix",
 		"format": "prettier --write \"**/*.{js,json,md,ts}\"",
-		"test": "jest --verbose"
+		"test": "NODE_ENV=test jest --verbose"
 	},
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
