@@ -10,7 +10,7 @@ export default async (host = 'database_ignite'): Promise<Connection> => {
 	return createConnection(
 		Object.assign(defaultOptions, {
 			host: NODE_ENV === 'test' ? 'localhost' : host,
-			databas: NODE_ENV === 'test' ? 'rentx_test' : defaultOptions.database,
+			database: NODE_ENV === 'test' ? 'rentx_test' : defaultOptions.database,
 		})
 	);
 };
