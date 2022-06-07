@@ -11,7 +11,9 @@ import createConnection from '..';
 	const password = await hash('admin', 8);
 
 	await connection.query(
-		`INSERT INTO users(id, name, email, password, is_admin, created_at, driver_license) values('${id}', 'admin', 'admin@rentx.com', '${password}', true, 'NOW()', 'XXXXXX')`
+		`INSERT INTO users
+		(id, name, email, password, is_admin, created_at, driver_license)
+		VALUES('${id}', 'admin', 'admin@rentx.com', '${password}', true, 'NOW()', 'XXXXXX')`
 	);
 
 	await connection.close();
