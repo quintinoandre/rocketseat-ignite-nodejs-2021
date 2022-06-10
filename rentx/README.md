@@ -76,3 +76,19 @@
 - [x] It should not be possible to register a new rent if there is already an open to the same user
 - [x] It should not be possible to register a new rent if there is already an open to the same car
 - [x] The user must be logged in the application
+- [ ] When performing a rent, the car status should be changed to unavailable
+
+# Return of car
+
+**FR**
+
+- [ ] It should be possible to return the car
+
+**RN**
+
+- [ ] If the car is returned with less than 24 hours, it should be charged complete daily
+- [ ] When making the return, the car should be released to another rent
+- [ ] When making the return, the user must be released to another rent
+- [ ] When making the return, the total rental should be calculated
+- [ ] If the return time is higher than the expected delivery time, a fine proportional to the days of delay should be charged
+- [ ] If there is a fine, it should be added to the total rental
