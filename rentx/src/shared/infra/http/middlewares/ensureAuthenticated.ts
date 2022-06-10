@@ -17,7 +17,7 @@ function ensureAuthenticated(
 		headers: { authorization: authHeader },
 	} = request;
 
-	if (!authHeader) throw new AppError('Token is missing', 401); //! Unauthorized
+	if (!authHeader) throw new AppError('Token is missing', 401); //! status 401 - unauthorized
 
 	const [, token] = authHeader.split(' ');
 
@@ -31,13 +31,13 @@ function ensureAuthenticated(
 
 		const user = usersRepository.findById(user_id);
 
-		if (!user) throw new AppError('User does not exists', 401); //! Unauthorized
+		if (!user) throw new AppError('User does not exists', 401); //! status 401 - unauthorized
 
 		request.user = { id: user_id };
 
 		next();
 	} catch (error) {
-		throw new AppError('Invalid token', 401); //! Unauthorized
+		throw new AppError('Invalid token', 401); //! status 401 - unauthorized
 	}
 }
 

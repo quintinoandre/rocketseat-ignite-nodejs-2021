@@ -21,11 +21,11 @@ class AuthenticateUserUseCase {
 	): Promise<IAuthenticateUserResponseDTO> {
 		const user = await this.usersRepository.findByEmail(data.email);
 
-		if (!user) throw new AppError('Email or password incorrect'); //! Bad Request
+		if (!user) throw new AppError('Email or password incorrect'); //! status 400 - bad request
 
 		const passwordMatched = await compare(data.password, user.password);
 
-		if (!passwordMatched) throw new AppError('Email or password incorrect'); //! Bad Request
+		if (!passwordMatched) throw new AppError('Email or password incorrect'); //! status 400 - bad request
 
 		const token = sign({}, 'hmrRKeqsipSK74YFqqA5k9Ynnes3pmnQ', {
 			subject: user.id,
