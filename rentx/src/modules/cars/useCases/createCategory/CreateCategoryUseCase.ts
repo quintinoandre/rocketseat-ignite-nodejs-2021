@@ -16,7 +16,7 @@ class CreateCategoryUseCase {
 			data.name
 		);
 
-		if (categoryAlreadyExists) throw new AppError('Category already exists'); //! status 400 - bad request
+		if (categoryAlreadyExists) throw new AppError('Category already exists'); //! status 400 - Bad request
 
 		this.categoriesRepository.create(data);
 	}

@@ -17,7 +17,7 @@ class CreateCarUseCase {
 			data.license_plate
 		);
 
-		if (carAlreadyExists) throw new AppError('Car already exists'); //! status 400 - bad request
+		if (carAlreadyExists) throw new AppError('Car already exists'); //! status 400 - Bad request
 
 		const car = await this.carsRepository.create(data);
 

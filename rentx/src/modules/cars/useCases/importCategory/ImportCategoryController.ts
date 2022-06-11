@@ -11,7 +11,7 @@ class ImportCategoryController {
 
 		await importCategoryUseCase.execute(file);
 
-		return response.sendStatus(204); //* status 204 - no content
+		return response.sendStatus(204); //* status 204 - No content
 	}
 }
 

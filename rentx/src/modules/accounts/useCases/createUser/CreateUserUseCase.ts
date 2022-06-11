@@ -17,7 +17,7 @@ class CreateUserUseCase {
 			data.email
 		);
 
-		if (userAlreadyExists) throw new AppError('User already exists'); //! status 400 - bad request
+		if (userAlreadyExists) throw new AppError('User already exists'); //! status 400 - Bad request
 
 		const passwordHash = await hash(data.password, 8);
 

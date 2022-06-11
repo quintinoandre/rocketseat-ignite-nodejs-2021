@@ -11,7 +11,7 @@ class AuthenticateUserController {
 
 		const token = await authenticateUserUseCase.execute(data);
 
-		return response.json(token); //* status 200 - ok
+		return response.json(token); //* status 200 - OK
 	}
 }
 

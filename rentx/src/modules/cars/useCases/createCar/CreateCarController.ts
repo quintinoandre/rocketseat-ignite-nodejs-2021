@@ -11,7 +11,7 @@ class CreateCarController {
 
 		const car = await createCarUseCase.execute(data);
 
-		return response.status(201).json(car); //* status 201 - created
+		return response.status(201).json(car); //* status 201 - Created
 	}
 }
 

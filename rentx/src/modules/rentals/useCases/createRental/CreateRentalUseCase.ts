@@ -24,13 +24,13 @@ class CreateRentalUseCase {
 		const carIsNotAvailable =
 			await this.rentalsRepository.findOpenRentalByCarId(data.car_id);
 
-		if (carIsNotAvailable) throw new AppError('Car is not available'); //! status 400 - bad request
+		if (carIsNotAvailable) throw new AppError('Car is not available'); //! status 400 - Bad request
 
 		const rentalOpenToUser =
 			await this.rentalsRepository.findOpenRentalByUserId(data.user_id);
 
 		if (rentalOpenToUser)
-			throw new AppError('There is already a rental in progress for this user'); //! status 400 - bad request
+			throw new AppError('There is already a rental in progress for this user'); //! status 400 - Bad request
 
 		const dateNow = this.dateProvider.dateNow();
 
@@ -40,7 +40,7 @@ class CreateRentalUseCase {
 		);
 
 		if (compare < MINIMUM_RENTAL_TIME)
-			throw new AppError('The rental time must be at least 24 hours'); //! status 400 - bad request
+			throw new AppError('The rental time must be at least 24 hours'); //! status 400 - Bad request
 
 		const rental = await this.rentalsRepository.create(data);
 

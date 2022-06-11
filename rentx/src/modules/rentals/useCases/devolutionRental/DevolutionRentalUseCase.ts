@@ -25,7 +25,7 @@ class DevolutionRentalUseCase {
 
 		const car = await this.carsRepository.findById(rental.car_id);
 
-		if (!rental) throw new AppError('Rental does not exists', 404); //! status 404 - not found
+		if (!rental) throw new AppError('Rental does not exists', 404); //! status 404 - Not found
 
 		const dateNow = this.dateProvider.dateNow();
 

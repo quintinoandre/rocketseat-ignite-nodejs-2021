@@ -14,7 +14,7 @@ class CreateRentalController {
 
 		const rental = await createRentalUseCase.execute({ ...data, user_id });
 
-		return response.status(201).json(rental); //* status 201 - created
+		return response.status(201).json(rental); //* status 201 - Created
 	}
 }
 

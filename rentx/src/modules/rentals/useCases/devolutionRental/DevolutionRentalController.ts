@@ -14,7 +14,7 @@ class DevolutionRentalController {
 
 		const rental = await devolutionRentalUseCase.execute({ id, user_id });
 
-		return response.json(rental); //* status 200 - ok
+		return response.json(rental); //* status 200 - OK
 	}
 }
 

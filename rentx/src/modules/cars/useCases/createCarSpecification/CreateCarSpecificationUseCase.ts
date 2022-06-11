@@ -20,7 +20,7 @@ class CreateCarSpecificationUseCase {
 	async execute(data: ICreateCarSpecificationDTO): Promise<Car> {
 		const carExists = await this.carsRepository.findById(data.car_id);
 
-		if (!carExists) throw new AppError('Car does not exists', 404); //! status 404 - not found
+		if (!carExists) throw new AppError('Car does not exists', 404); //! status 404 - Not found
 
 		const specifications = await this.specificationsRepository.findByIds(
 			data.specifications_id

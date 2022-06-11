@@ -14,7 +14,7 @@ class UpdateUserAvatarController {
 
 		await updateUserAvatarUseCase.execute({ user_id, avatar_file });
 
-		return response.sendStatus(204); //* status 204 - no content
+		return response.sendStatus(204); //* status 204 - No content
 	}
 }
 

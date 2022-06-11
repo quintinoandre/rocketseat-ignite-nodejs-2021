@@ -21,7 +21,7 @@ class UploadCarImagesController {
 
 		await uploadCarImagesUseCase.execute({ car_id, images_name });
 
-		return response.sendStatus(201); //* status 201 - created
+		return response.sendStatus(201); //* status 201 - Created
 	}
 }
 

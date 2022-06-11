@@ -88,8 +88,18 @@
 
 - [x] If the car is returned with less than 24 hours, it should be charged complete daily
 - [x] When making the return, the car should be released to another rent
-- [ ] When making the return, the user must be released to another rent
+- [x] When making the return, the user must be released to another rent
 - [x] When making the return, the total rental should be calculated
 - [x] If the return time is higher than the expected delivery time, a fine proportional to the days of delay should be charged
 - [x] If there is a fine, it should be added to the total rental
+- [x] The user must be logged in the application
+
+# User Rental Listing
+
+**FR**
+
+- [x] It should be possible to search for all rents to the user
+
+**RN**
+
 - [x] The user must be logged in the application

@@ -19,7 +19,7 @@ class ListAvailableCarsController {
 			name: name as string,
 		});
 
-		return response.json(cars); //* status 200 - ok
+		return response.json(cars); //* status 200 - OK
 	}
 }
 
