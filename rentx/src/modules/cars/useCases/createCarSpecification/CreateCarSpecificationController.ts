@@ -19,7 +19,7 @@ class CreateCarSpecificationController {
 			specifications_id,
 		});
 
-		return response.status(201).json(car); //* Created
+		return response.status(201).json(car); //* status 201 - created
 	}
 }
 

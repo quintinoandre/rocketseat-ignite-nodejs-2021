@@ -34,8 +34,8 @@ class DevolutionRentalUseCase {
 		if (daily <= 0) daily = MINIMUM_DAILY;
 
 		const delay = this.dateProvider.compareInDays(
-			dateNow,
-			rental.expected_return_date
+			rental.expected_return_date,
+			dateNow
 		);
 
 		let total = 0;
