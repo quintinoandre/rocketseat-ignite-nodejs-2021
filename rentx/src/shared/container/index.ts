@@ -1,7 +1,13 @@
 import { container } from 'tsyringe';
 
-import { UsersRepository } from '@modules/accounts/infra/typeorm/repositories';
-import { IUsersRepository } from '@modules/accounts/repositories';
+import {
+	UsersRepository,
+	UsersTokensRepository,
+} from '@modules/accounts/infra/typeorm/repositories';
+import {
+	IUsersRepository,
+	IUsersTokensRepository,
+} from '@modules/accounts/repositories';
 import {
 	CategoriesRepository,
 	SpecificationsRepository,
@@ -44,4 +50,9 @@ container.registerSingleton<ICarsImagesRepository>(
 container.registerSingleton<IRentalsRepository>(
 	'RentalsRepository',
 	RentalsRepository
+);
+
+container.registerSingleton<IUsersTokensRepository>(
+	'UsersTokensRepository',
+	UsersTokensRepository
 );

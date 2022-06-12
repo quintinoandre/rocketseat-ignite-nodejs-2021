@@ -9,6 +9,7 @@ interface IAuthenticateUserResponseDTO {
 		email: string;
 	};
 	token: string;
+	refreshToken: string;
 }
 
 export { IAuthenticateUserRequestDTO, IAuthenticateUserResponseDTO };
