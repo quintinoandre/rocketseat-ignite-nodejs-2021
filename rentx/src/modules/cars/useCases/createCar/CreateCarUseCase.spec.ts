@@ -1,4 +1,5 @@
 import { ICreateCarDTO } from '@modules/cars/dtos';
+import { Car } from '@modules/cars/infra/typeorm/entities';
 import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory';
 import { AppError } from '@shared/erros';
 
@@ -6,59 +7,39 @@ import { CreateCarUseCase } from '.';
 
 let carsRepositoryInMemory: CarsRepositoryInMemory;
 let createCarUseCase: CreateCarUseCase;
+let car: ICreateCarDTO;
+let createdCar: Car;
 
 describe('Create Car', () => {
-	beforeEach(() => {
+	beforeEach(async () => {
 		carsRepositoryInMemory = new CarsRepositoryInMemory();
 
 		createCarUseCase = new CreateCarUseCase(carsRepositoryInMemory);
-	});
 
-	it('Sould be able to create a new car', async () => {
-		const car: ICreateCarDTO = {
-			name: 'Name Car',
-			description: 'Description Car',
+		car = {
+			name: 'Test Car Name',
+			description: 'Test Car Description',
 			daily_rate: 100,
-			license_plate: 'ABC-1234',
-			fine_amount: 60,
-			brand: 'Brand',
-			category_id: 'category',
+			license_plate: 'Test Car License Plate',
+			fine_amount: 50,
+			brand: 'Test Car Brand',
+			category_id: 'Test Car Category ID',
 		};
 
-		const result = await createCarUseCase.execute(car);
-
-		expect(result).toHaveProperty('id');
+		createdCar = await createCarUseCase.execute(car);
 	});
 
-	it('should not be able to create a new car with an existent license plate', () => {
-		expect(async () => {
-			const car: ICreateCarDTO = {
-				name: 'Name Car',
-				description: 'Description Car',
-				daily_rate: 100,
-				license_plate: 'ABC-1234',
-				fine_amount: 60,
-				brand: 'Brand',
-				category_id: 'category',
-			};
-
-			await createCarUseCase.execute(car);
-
-			await createCarUseCase.execute(car);
-		}).rejects.toBeInstanceOf(AppError);
+	it('Should be able to create a new car', async () => {
+		expect(createdCar).toHaveProperty('id');
 	});
 
-	it('Sould be able to create a new car with availability by default', async () => {
-		const car = await createCarUseCase.execute({
-			name: 'Car Available',
-			description: 'Description Car',
-			daily_rate: 100,
-			license_plate: 'ABCD-1234',
-			fine_amount: 60,
-			brand: 'Brand',
-			category_id: 'category',
-		});
+	it('Should not be able to create a new car with an existent license plate', async () => {
+		await expect(createCarUseCase.execute(car)).rejects.toEqual(
+			new AppError('Car already exists')
+		);
+	});
 
-		expect(car.available).toBe(true);
+	it('Should be able to create a new car with availability by default', async () => {
+		expect(createdCar.available).toBe(true);
 	});
 });

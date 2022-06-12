@@ -3,26 +3,69 @@ import request from 'supertest';
 import { Connection } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 
+import { ICreateCategoryDTO } from '@modules/cars/dtos';
 import { app } from '@shared/infra/http';
 import createConnection from '@shared/infra/typeorm';
 
 let connection: Connection;
+let adminUser: {
+	id: string;
+	name: string;
+	email: string;
+	password: string;
+	is_admin: boolean;
+	driver_license: string;
+};
+let token: string;
+let category: ICreateCategoryDTO;
+let createdCategory;
 
 describe('Create category controller', () => {
 	beforeAll(async () => {
 		connection = await createConnection();
 
 		await connection.runMigrations();
+	});
 
-		const id = uuidV4();
+	beforeEach(async () => {
+		const randomString = uuidV4();
 
-		const password = await hash('admin', 8);
+		adminUser = {
+			id: randomString,
+			name: `Test Admin User Name ${randomString}`,
+			email: `${randomString}@rentx.com`,
+			password: await hash(randomString, 8),
+			is_admin: true,
+			driver_license: randomString,
+		};
 
 		await connection.query(
 			`INSERT INTO users
 			(id, name, email, password, is_admin, created_at, driver_license)
-			VALUES('${id}', 'admin', 'admin@rentx.com', '${password}', true, 'NOW()', 'XXXXXX')`
+			VALUES('${adminUser.id}', '${adminUser.name}', '${adminUser.email}', '${adminUser.password}', '${adminUser.is_admin}', 'NOW()', '${adminUser.driver_license}')`
 		);
+
+		const authorizationResponse = await request(app).post('/sessions').send({
+			email: adminUser.email,
+			password: randomString,
+		});
+
+		token = authorizationResponse.body.token;
+
+		category = {
+			name: `Test Category Name ${randomString}`,
+			description: `Test Category Description ${randomString}`,
+		};
+
+		createdCategory = await request(app)
+			.post('/categories')
+			.send({
+				name: category.name,
+				description: category.description,
+			})
+			.set({
+				Authorization: `Bearer ${token}`,
+			});
 	});
 
 	afterAll(async () => {
@@ -32,43 +75,15 @@ describe('Create category controller', () => {
 	});
 
 	it('Should be able to create a new category', async () => {
-		const responseToken = await request(app).post('/sessions').send({
-			email: 'admin@rentx.com',
-			password: 'admin',
-		});
-
-		const {
-			body: { token },
-		} = responseToken;
-
-		const response = await request(app)
-			.post('/categories')
-			.send({
-				name: 'Category supertest',
-				description: 'Category supertest',
-			})
-			.set({
-				Authorization: `Bearer ${token}`,
-			});
-
-		expect(response.status).toBe(201);
+		expect(createdCategory.status).toBe(201);
 	});
 
 	it('should not be able to create a new category with the same name', async () => {
-		const responseToken = await request(app).post('/sessions').send({
-			email: 'admin@rentx.com',
-			password: 'admin',
-		});
-
-		const {
-			body: { token },
-		} = responseToken;
-
 		const response = await request(app)
 			.post('/categories')
 			.send({
-				name: 'Category supertest',
-				description: 'Category supertest',
+				name: category.name,
+				description: 'Test Category Description',
 			})
 			.set({
 				Authorization: `Bearer ${token}`,

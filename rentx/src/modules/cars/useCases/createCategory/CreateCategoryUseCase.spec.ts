@@ -6,41 +6,33 @@ import { CreateCategoryUseCase } from '.';
 
 let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
 let createCategoryUseCase: CreateCategoryUseCase;
+let category: ICreateCategoryDTO;
 
 describe('Create category', () => {
-	beforeEach(() => {
+	beforeEach(async () => {
 		categoriesRepositoryInMemory = new CategoriesRepositoryInMemory();
 
 		createCategoryUseCase = new CreateCategoryUseCase(
 			categoriesRepositoryInMemory
 		);
-	});
 
-	it('should be able to create a new category', async () => {
-		const category: ICreateCategoryDTO = {
-			name: 'Category Test',
-			description: 'Category Description Test',
+		category = {
+			name: 'Test Category Name',
+			description: 'Test Category Description',
 		};
 
 		await createCategoryUseCase.execute(category);
-
-		const categoryCreated = await categoriesRepositoryInMemory.findByName(
-			category.name
-		);
-
-		expect(categoryCreated).toHaveProperty('id');
 	});
 
-	it('should not be able to create a new category with the same name', async () => {
-		expect(async () => {
-			const category: ICreateCategoryDTO = {
-				name: 'Category Test',
-				description: 'Category Description Test',
-			};
+	it('Should be able to create a new category', async () => {
+		const result = await categoriesRepositoryInMemory.findByName(category.name);
 
-			await createCategoryUseCase.execute(category);
+		expect(result).toHaveProperty('id');
+	});
 
-			await createCategoryUseCase.execute(category);
-		}).rejects.toBeInstanceOf(AppError);
+	it('Should not be able to create a new category with the same name', async () => {
+		await expect(createCategoryUseCase.execute(category)).rejects.toEqual(
+			new AppError('Category already exists')
+		);
 	});
 });
