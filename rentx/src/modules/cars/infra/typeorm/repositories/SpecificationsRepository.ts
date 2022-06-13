@@ -24,8 +24,9 @@ class SpecificationsRepository implements ISpecificationsRepository {
 		INSERT INTO specifications
 		(id, name, description)
 		VALUES
-		('${id}', '${name}', '${description}');
-		`) RETURNING *;
+		('${id}', '${name}', '${description}')
+		RETURNING *;
+		`);
 
 		return specification; */
 	}

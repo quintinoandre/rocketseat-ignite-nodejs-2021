@@ -1,73 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-06-11T15:16:14.055Z",
+	"__export_date": "2022-06-13T18:00:33.563Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
-			"_id": "req_0c93e839e9a6452a821f8a0590373b6d",
-			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1654960368805,
-			"created": 1654032651507,
-			"url": "{{ _.baseURL }}/{{ _.resource_sessions }}",
-			"name": "Admin Session",
-			"description": "",
-			"method": "POST",
-			"body": {
-				"mimeType": "application/json",
-				"text": "{\n\t\"email\": \"admin@rentx.com\",\n\t\"password\": \"admin\"\n}"
-			},
-			"parameters": [],
-			"headers": [
-				{
-					"name": "Content-Type",
-					"value": "application/json",
-					"id": "pair_360c005969fb4a259ebed00ba05118fb"
-				}
-			],
-			"authentication": {},
-			"metaSortKey": 0,
-			"isPrivate": false,
-			"settingStoreCookies": true,
-			"settingSendCookies": true,
-			"settingDisableRenderRequestBody": false,
-			"settingEncodeUrl": true,
-			"settingRebuildPath": true,
-			"settingFollowRedirects": "global",
-			"_type": "request"
-		},
-		{
-			"_id": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654960368793,
-			"created": 1653700408748,
-			"name": "Accounts",
-			"description": "",
-			"environment": {
-				"resource_users": "users",
-				"resource_sessions": "sessions",
-				"resource_avatar": "avatar"
-			},
-			"environmentPropertyOrder": {
-				"&": ["resource_users", "resource_sessions", "resource_avatar"]
-			},
-			"metaSortKey": 0,
-			"_type": "request_group"
-		},
-		{
-			"_id": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"parentId": null,
-			"modified": 1652997011274,
-			"created": 1652997011274,
-			"name": "rentalx",
-			"description": "",
-			"scope": "collection",
-			"_type": "workspace"
-		},
-		{
 			"_id": "req_cd4131c3c35a4e03bd1979831d54096b",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1654960368805,
+			"modified": 1655105733045,
 			"created": 1653700408764,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}",
 			"name": "Create User",
@@ -86,7 +26,7 @@
 				}
 			],
 			"authentication": {},
-			"metaSortKey": 100,
+			"metaSortKey": 0,
 			"isPrivate": false,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
@@ -97,9 +37,33 @@
 			"_type": "request"
 		},
 		{
+			"_id": "fld_1ac548f359bf4126ac75b31255d5c7f5",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1655105733035,
+			"created": 1653700408748,
+			"name": "Accounts",
+			"description": "",
+			"environment": { "resource_users": "users", "resource_avatar": "avatar" },
+			"environmentPropertyOrder": {
+				"&": ["resource_users", "resource_avatar"]
+			},
+			"metaSortKey": 0,
+			"_type": "request_group"
+		},
+		{
+			"_id": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"parentId": null,
+			"modified": 1652997011274,
+			"created": 1652997011274,
+			"name": "rentalx",
+			"description": "",
+			"scope": "collection",
+			"_type": "workspace"
+		},
+		{
 			"_id": "req_8845d61eeac3431b9eb7079d2b4fa2ed",
 			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1654960368805,
+			"modified": 1655105733046,
 			"created": 1653747922780,
 			"url": "{{ _.baseURL }}/{{ _.resource_users }}/{{ _.resource_avatar }}",
 			"name": "Update Avatar",
@@ -131,7 +95,88 @@
 				"type": "bearer",
 				"token": "{% response 'body', 'req_874272b7db334f859f998ecc780e9b28', 'b64::JC50b2tlbg==::46b', 'always', 86400 %}"
 			},
-			"metaSortKey": 200,
+			"metaSortKey": 100,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_f4e8932f0f0c44d78cbe72f3c44842ac",
+			"parentId": "fld_881fff0e1d464421b10cadf205eced88",
+			"modified": 1655143187475,
+			"created": 1655105773792,
+			"url": "{{ _.baseURL }}/{{ _['resource_refresh-token'] }}",
+			"name": "Refresh Token",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHJlbnR4LmNvbSIsImlhdCI6MTY1NTE0MzE2MCwiZXhwIjoxNjU3NzM1MTYwLCJzdWIiOiJiZTU0Y2ZkMy1lNDBkLTRhZGMtOWVlNC1kYjg2YTFjMjgwY2MifQ.KvIMgbMvEurpgM8XRrTgYI51XekBv_HLuN54VSZSwhE\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_c0e1471f125941368909829afffa1707"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1655105773792,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_881fff0e1d464421b10cadf205eced88",
+			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
+			"modified": 1655105793566,
+			"created": 1655105676211,
+			"name": "Authentication",
+			"description": "",
+			"environment": {
+				"resource_sessions": "sessions",
+				"resource_refresh-token": "refresh-token"
+			},
+			"environmentPropertyOrder": {
+				"&": ["resource_sessions", "resource_refresh-token"]
+			},
+			"metaSortKey": 100,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_0c93e839e9a6452a821f8a0590373b6d",
+			"parentId": "fld_881fff0e1d464421b10cadf205eced88",
+			"modified": 1655143159427,
+			"created": 1654032651507,
+			"url": "{{ _.baseURL }}/{{ _.resource_sessions }}",
+			"name": "Admin Session",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\": \"admin@rentx.com\",\n\t\"password\": \"admin\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_360c005969fb4a259ebed00ba05118fb"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 0,
 			"isPrivate": false,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
@@ -143,8 +188,8 @@
 		},
 		{
 			"_id": "req_874272b7db334f859f998ecc780e9b28",
-			"parentId": "fld_1ac548f359bf4126ac75b31255d5c7f5",
-			"modified": 1654960368805,
+			"parentId": "fld_881fff0e1d464421b10cadf205eced88",
+			"modified": 1655123703144,
 			"created": 1653705393655,
 			"url": "{{ _.baseURL }}/{{ _.resource_sessions }}",
 			"name": "User Session",
@@ -163,7 +208,7 @@
 				}
 			],
 			"authentication": {},
-			"metaSortKey": 300,
+			"metaSortKey": 100,
 			"isPrivate": false,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
@@ -176,7 +221,7 @@
 		{
 			"_id": "req_8723b4f98221462ebdb01d1f20061ca8",
 			"parentId": "fld_186cfa0c82c04f9bbd21acc518d12c13",
-			"modified": 1654960368806,
+			"modified": 1655105733057,
 			"created": 1654023785547,
 			"url": "{{ _.baseURL }}/{{ _.resource_cars }}",
 			"name": "Create Car",
@@ -211,7 +256,7 @@
 		{
 			"_id": "fld_186cfa0c82c04f9bbd21acc518d12c13",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654960368793,
+			"modified": 1655105733035,
 			"created": 1654023770605,
 			"name": "Cars",
 			"description": "",
@@ -229,13 +274,13 @@
 					"resource_images"
 				]
 			},
-			"metaSortKey": 100,
+			"metaSortKey": 200,
 			"_type": "request_group"
 		},
 		{
 			"_id": "req_2e539c1f74ab437ab45b5e2aeeec5a54",
 			"parentId": "fld_186cfa0c82c04f9bbd21acc518d12c13",
-			"modified": 1654960368806,
+			"modified": 1655105733057,
 			"created": 1654136580065,
 			"url": "{{ _.baseURL }}/{{ _.resource_cars }}/{{ _.resource_specifications }}/{% response 'body', 'req_3cef4299337240b4b3d03c01f80c076b', 'b64::JFswXS5pZA==::46b', 'always', 60 %}",
 			"name": "Create Specifications",
@@ -270,7 +315,7 @@
 		{
 			"_id": "req_3cef4299337240b4b3d03c01f80c076b",
 			"parentId": "fld_186cfa0c82c04f9bbd21acc518d12c13",
-			"modified": 1654960368806,
+			"modified": 1655105733057,
 			"created": 1654049389477,
 			"url": "{{ _.baseURL }}/{{ _.resource_cars }}/{{ _.resource_available }}",
 			"name": "List Available",
@@ -315,7 +360,7 @@
 		{
 			"_id": "req_8863e0b2381440929069ec6d9b452be4",
 			"parentId": "fld_186cfa0c82c04f9bbd21acc518d12c13",
-			"modified": 1654960368806,
+			"modified": 1655105733057,
 			"created": 1654202387350,
 			"url": "{{ _.baseURL }}/{{ _.resource_cars }}/{{ _.resource_images }}/{% response 'body', 'req_3cef4299337240b4b3d03c01f80c076b', 'b64::JFswXS5pZA==::46b', 'always', 60 %}",
 			"name": "Upload Images",
@@ -367,7 +412,7 @@
 		{
 			"_id": "req_9bd79d19bd5046e8947b15fbb6d94492",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1654960368807,
+			"modified": 1655105733059,
 			"created": 1652998940525,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "Create",
@@ -402,7 +447,7 @@
 		{
 			"_id": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654960368793,
+			"modified": 1655105733035,
 			"created": 1652998896661,
 			"name": "Categories",
 			"description": "",
@@ -413,13 +458,13 @@
 			"environmentPropertyOrder": {
 				"&": ["resource_categories", "resource_import"]
 			},
-			"metaSortKey": 200,
+			"metaSortKey": 300,
 			"_type": "request_group"
 		},
 		{
 			"_id": "req_0b349eec2d1f438ea4331a572c12fabe",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1654960368807,
+			"modified": 1655105733059,
 			"created": 1653066786347,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}/{{ _.resource_import }}",
 			"name": "import",
@@ -463,7 +508,7 @@
 		{
 			"_id": "req_39fe31adf5de41f498eb1e6eb36c691b",
 			"parentId": "fld_06ad66eb10dc4437846c5ba77e7e0e68",
-			"modified": 1654960368807,
+			"modified": 1655105733059,
 			"created": 1653010250934,
 			"url": "{{ _.baseURL }}/{{ _.resource_categories }}",
 			"name": "List",
@@ -486,7 +531,7 @@
 		{
 			"_id": "req_b9f203b784394724ba822b6d05786602",
 			"parentId": "fld_4de91c86cefb47859ba1fe09cb5dab94",
-			"modified": 1654960368807,
+			"modified": 1655105733065,
 			"created": 1654554198766,
 			"url": "{{ _.baseURL }}/{{ _.resource_rentals }}",
 			"name": "Create",
@@ -521,7 +566,7 @@
 		{
 			"_id": "fld_4de91c86cefb47859ba1fe09cb5dab94",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654960381427,
+			"modified": 1655105733035,
 			"created": 1654554129420,
 			"name": "Rentals",
 			"description": "",
@@ -533,13 +578,13 @@
 			"environmentPropertyOrder": {
 				"&": ["resource_rentals", "resource_devolution", "resource_user"]
 			},
-			"metaSortKey": 300,
+			"metaSortKey": 400,
 			"_type": "request_group"
 		},
 		{
 			"_id": "req_007438b0e63b45728f7aacbe6d926e99",
 			"parentId": "fld_4de91c86cefb47859ba1fe09cb5dab94",
-			"modified": 1654960409852,
+			"modified": 1655105733066,
 			"created": 1654949971811,
 			"url": "{{ _.baseURL }}/{{ _.resource_rentals }}/{{ _.resource_devolution }}/6742c726-c744-47b2-885d-73e42ccfad52",
 			"name": "Devolution",
@@ -565,7 +610,7 @@
 		{
 			"_id": "req_832ec52195e34c33afc22e1f7855c2b9",
 			"parentId": "fld_4de91c86cefb47859ba1fe09cb5dab94",
-			"modified": 1654960430647,
+			"modified": 1655105733066,
 			"created": 1654960365002,
 			"url": "{{ _.baseURL }}/{{ _.resource_rentals }}/{{ _.resource_user }}",
 			"name": "List By User",
@@ -591,7 +636,7 @@
 		{
 			"_id": "req_d365c4605d344a9f98d08cddf017d58f",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1654960368812,
+			"modified": 1655143213764,
 			"created": 1653053859261,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "Create",
@@ -599,7 +644,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"Manual\",\n\t\"description\": \"Carro Manual\"\n}"
+				"text": "{\n\t\"name\": \"4 portas\",\n\t\"description\": \"Carro com 4 portas\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -611,8 +656,9 @@
 			],
 			"authentication": {
 				"type": "bearer",
-				"token": "{% response 'body', 'req_0c93e839e9a6452a821f8a0590373b6d', 'b64::JC50b2tlbg==::46b', 'always', 86400 %}",
-				"disabled": false
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHJlbnR4LmNvbSIsImlhdCI6MTY1NTE0MzE4OSwiZXhwIjoxNjU3NzM1MTg5LCJzdWIiOiJiZTU0Y2ZkMy1lNDBkLTRhZGMtOWVlNC1kYjg2YTFjMjgwY2MifQ.gO8guqAx9ZF2QpQUIg8-NCsNYGL3iklRShHNFwzy_p0",
+				"disabled": false,
+				"prefix": ""
 			},
 			"metaSortKey": 0,
 			"isPrivate": false,
@@ -627,19 +673,19 @@
 		{
 			"_id": "fld_50c40bfb2e954d5987e664fc045e7c4a",
 			"parentId": "wrk_0ba38f5773b346f9a5020f77ee64e409",
-			"modified": 1654960368793,
+			"modified": 1655105733036,
 			"created": 1653053859255,
 			"name": "Specifications",
 			"description": "",
 			"environment": { "resource_specifications": "specifications" },
 			"environmentPropertyOrder": { "&": ["resource_specifications"] },
-			"metaSortKey": 400,
+			"metaSortKey": 500,
 			"_type": "request_group"
 		},
 		{
 			"_id": "req_ee89ca4103a940bfbe17d21591d4d38a",
 			"parentId": "fld_50c40bfb2e954d5987e664fc045e7c4a",
-			"modified": 1654960368812,
+			"modified": 1655105733067,
 			"created": 1653053859269,
 			"url": "{{ _.baseURL }}/{{ _.resource_specifications }}",
 			"name": "List",

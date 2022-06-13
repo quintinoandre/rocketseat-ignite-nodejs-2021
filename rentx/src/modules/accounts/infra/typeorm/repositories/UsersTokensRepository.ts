@@ -14,6 +14,18 @@ class UsersTokensRepository implements IUsersTokensRepository {
 
 		await this.repository.save(userToken);
 
+		/* const id = uuidV4();
+
+		const { user_id, refresh_token, expires_date } = data;
+
+		const [userToken] = await this.repository.query(`
+			INSERT INTO users_tokens
+			(id, user_id, refresh_token, expires_date)
+			VALUES
+			('${id}', '${user_id}', '${refresh_token}', '${expires_date}')
+			RETURNING *;
+		`); */
+
 		return userToken;
 	}
 

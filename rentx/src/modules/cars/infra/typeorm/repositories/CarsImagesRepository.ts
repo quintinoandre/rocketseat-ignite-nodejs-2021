@@ -14,8 +14,6 @@ class CarsImagesRepository implements ICarsImagesRepository {
 
 		await this.repository.save(carImage);
 
-		return carImage;
-
 		/* const id = uuidV4();
 
 		const { car_id, image_name } = data;
@@ -24,11 +22,11 @@ class CarsImagesRepository implements ICarsImagesRepository {
 			INSERT INTO car_images
 			(id, car_id, image_name)
 			VALUES
-			('${id}', '${car_id}', '${image_name}') RETURNING *;
-		`);
+			('${id}', '${car_id}', '${image_name}')
+			RETURNING *;
+		`); */
 
 		return carImage;
- */
 	}
 }
 
