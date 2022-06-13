@@ -1,7 +1,11 @@
+const {
+	env: { SECRET_TOKEN, SECRET_REFRESH_TOKEN },
+} = process;
+
 export default {
-	secretToken: 'hmrRKeqsipSK74YFqqA5k9Ynnes3pmnQ',
+	secretToken: SECRET_TOKEN,
 	expiresInToken: '15m',
-	secretRefreshToken: 'v!hbBmBUdl@xiaOkQ29jBBBjDz5uxg?y',
+	secretRefreshToken: SECRET_REFRESH_TOKEN,
 	expiresInRefreshToken: '30d',
 	expires_refresh_token_days: 30,
 };

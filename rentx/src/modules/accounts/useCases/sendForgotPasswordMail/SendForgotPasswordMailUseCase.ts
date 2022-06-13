@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import { inject, injectable } from 'tsyringe';
 import { v4 as uuidV4 } from 'uuid';
 
@@ -26,6 +27,15 @@ class SendForgotPasswordMailUseCase {
 	async execute(data: ISendForgotPasswordMailDTO): Promise<void> {
 		const user = await this.usersRepository.findByEmail(data.email);
 
+		const templatePath = resolve(
+			__dirname,
+			'..',
+			'..',
+			'views',
+			'emails',
+			'forgotPassword.hbs'
+		);
+
 		if (!user) throw new AppError('User does not exists', 404); //! status 404 - Not found
 
 		const token = uuidV4();
@@ -38,10 +48,20 @@ class SendForgotPasswordMailUseCase {
 			expires_date,
 		});
 
+		const {
+			env: { FORGOT_MAIL_URL },
+		} = process;
+
+		const variables = {
+			name: user.name,
+			link: `${FORGOT_MAIL_URL}${token}`,
+		};
+
 		await this.mailProvider.sendMail(
 			data.email,
 			'Password recovery',
-			`The link to the reset is ${token}`
+			variables,
+			templatePath
 		);
 	}
 }
