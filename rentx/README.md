@@ -108,11 +108,11 @@
 
 **FR**
 
-- [ ] It should be possible for the user to recover the password informing the email
-- [ ] The user must receive an email with the step by step for password recovery
-- [ ] The user must be able to enter a new password
+- [x] It should be possible for the user to recover the password informing the email
+- [x] The user must receive an email with the step by step for password recovery
+- [x] The user must be able to enter a new password
 
 **RN**
 
-- [ ] The user needs to enter a new password
-- [ ] The link sent to recovery should expire in 3 hours
+- [x] The user needs to enter a new password
+- [x] The link sent to recovery should expire in 3 hours

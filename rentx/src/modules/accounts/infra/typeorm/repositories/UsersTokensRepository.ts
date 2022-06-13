@@ -53,7 +53,18 @@ class UsersTokensRepository implements IUsersTokensRepository {
 		/* await this.repository.query(`
 			DELETE FROM users_tokens
 			WHERE id = '${id}';
+			`); */
+	}
+
+	async findByRefreshToken(refresh_token: string): Promise<UserTokens> {
+		const userToken = await this.repository.findOne({ refresh_token });
+
+		/* const userToken = await this.repository.query(`
+			SELECT * FROM users_tokens
+			WHERE refresh_token = '${refresh_token}';
 		`); */
+
+		return userToken;
 	}
 }
 
