@@ -16,7 +16,7 @@ let adminUser: {
 	is_admin: boolean;
 	driver_license: string;
 };
-let token: string;
+let refreshToken: string;
 let category: ICreateCategoryDTO;
 let createdCategory;
 
@@ -50,7 +50,7 @@ describe('Create category controller', () => {
 			password: randomString,
 		});
 
-		token = authorizationResponse.body.token;
+		refreshToken = authorizationResponse.body.refreshToken;
 
 		category = {
 			name: `Test Category Name ${randomString}`,
@@ -64,7 +64,7 @@ describe('Create category controller', () => {
 				description: category.description,
 			})
 			.set({
-				Authorization: `Bearer ${token}`,
+				Authorization: `Bearer ${refreshToken}`,
 			});
 	});
 
@@ -86,7 +86,7 @@ describe('Create category controller', () => {
 				description: 'Test Category Description',
 			})
 			.set({
-				Authorization: `Bearer ${token}`,
+				Authorization: `Bearer ${refreshToken}`,
 			});
 
 		expect(response.status).toBe(400);

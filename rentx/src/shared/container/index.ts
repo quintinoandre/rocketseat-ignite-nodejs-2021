@@ -22,6 +22,10 @@ import {
 } from '@modules/cars/repositories';
 import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories';
 import { IRentalsRepository } from '@modules/rentals/repositories';
+import { IDateProvider } from '@shared/container/providers/DateProvider';
+import { DayjsDateProvider } from '@shared/container/providers/DateProvider/implementations';
+import { IMailProvider } from '@shared/container/providers/MailProvider';
+import { EtherealMailProvider } from '@shared/container/providers/MailProvider/implementations';
 
 container.registerSingleton<ICategoriesRepository>(
 	'CategoriesRepository',
@@ -53,4 +57,14 @@ container.registerSingleton<IRentalsRepository>(
 container.registerSingleton<IUsersTokensRepository>(
 	'UsersTokensRepository',
 	UsersTokensRepository
+);
+
+container.registerSingleton<IDateProvider>(
+	'DayjsDateProvider',
+	DayjsDateProvider
+);
+
+container.registerInstance<IMailProvider>(
+	'EtherealMailProvider',
+	new EtherealMailProvider()
 );

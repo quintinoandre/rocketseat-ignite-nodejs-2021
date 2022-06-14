@@ -16,7 +16,7 @@ let adminUser: {
 	is_admin: boolean;
 	driver_license: string;
 };
-let token: string;
+let refreshToken: string;
 let category: ICreateCategoryDTO;
 
 describe('List categories', () => {
@@ -49,7 +49,7 @@ describe('List categories', () => {
 			password: randomString,
 		});
 
-		token = authorizationResponse.body.token;
+		refreshToken = authorizationResponse.body.refreshToken;
 
 		category = {
 			name: `Test Category Name ${randomString}`,
@@ -63,7 +63,7 @@ describe('List categories', () => {
 				description: category.description,
 			})
 			.set({
-				Authorization: `Bearer ${token}`,
+				Authorization: `Bearer ${refreshToken}`,
 			});
 	});
 
