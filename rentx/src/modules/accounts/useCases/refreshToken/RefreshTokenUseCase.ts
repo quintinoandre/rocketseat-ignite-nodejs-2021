@@ -12,6 +12,11 @@ interface IPayload {
 	email: string;
 }
 
+interface ITokenResponse {
+	token: string;
+	refresh_token: string;
+}
+
 @injectable()
 class RefreshTokenUseCase {
 	constructor(
@@ -21,10 +26,18 @@ class RefreshTokenUseCase {
 		private dateProvider: IDateProvider
 	) {}
 
-	async execute(data: IRefreshTokenDTO): Promise<string> {
+	async execute(data: IRefreshTokenDTO): Promise<ITokenResponse> {
+		const {
+			secretRefreshToken,
+			expires_refresh_token_days,
+			expiresInRefreshToken,
+			secretToken,
+			expiresInToken,
+		} = auth;
+
 		const { email, sub: user_id } = verify(
 			data.token,
-			auth.secretRefreshToken
+			secretRefreshToken
 		) as IPayload;
 
 		const userToken =
@@ -37,13 +50,11 @@ class RefreshTokenUseCase {
 
 		await this.usersTokensRepository.deleteById(userToken.id);
 
-		const expires_date = this.dateProvider.addDays(
-			auth.expires_refresh_token_days
-		);
+		const expires_date = this.dateProvider.addDays(expires_refresh_token_days);
 
-		const refresh_token = sign({ email }, auth.secretRefreshToken, {
+		const refresh_token = sign({ email }, secretRefreshToken, {
 			subject: user_id,
-			expiresIn: auth.expiresInRefreshToken,
+			expiresIn: expiresInRefreshToken,
 		});
 
 		await this.usersTokensRepository.create({
@@ -52,7 +63,12 @@ class RefreshTokenUseCase {
 			expires_date,
 		});
 
-		return refresh_token;
+		const newToken = sign({}, secretToken, {
+			subject: user_id,
+			expiresIn: expiresInToken,
+		});
+
+		return { refresh_token, token: newToken };
 	}
 }
 
