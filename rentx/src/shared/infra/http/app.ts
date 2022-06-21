@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import 'dotenv/config';
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
@@ -7,6 +6,7 @@ import swaggerUi from 'swagger-ui-express';
 
 import upload from '@config/upload';
 import { AppError } from '@shared/erros';
+import { rateLimiter } from '@shared/infra/http/middlewares';
 import createConnection from '@shared/infra/typeorm';
 import '@shared/container';
 
@@ -16,6 +16,8 @@ import { router } from './routes';
 createConnection();
 
 const app = express();
+
+app.use(rateLimiter);
 
 app.use(express.json());
 
