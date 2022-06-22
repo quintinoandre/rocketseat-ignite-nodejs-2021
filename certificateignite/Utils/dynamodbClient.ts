@@ -6,7 +6,9 @@ const {
 
 const options = {
   region: 'localhost',
-  endpoint: 'http://localhost:8080',
+  endpoint: 'http://localhost:8000',
+  accessKeyId: 'x',
+  secretAccessKey: 'x',
 };
 
 const isOffline = () => IS_OFFLINE;
