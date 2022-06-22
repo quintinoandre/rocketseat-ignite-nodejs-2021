@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import { readFileSync } from 'fs';
 import { compile } from 'handlebars';
 import { join } from 'path';
-import { document } from '../../Utils/dynamodbClient';
+import { document } from '../Utils/dynamodbClient';
 
 interface ICreateCertificate {
   id: string;
