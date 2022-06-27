@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-async function main() {
+(async function main() {
   const result = await prisma.courses.create({
     data: {
       duration: 200,
@@ -12,6 +12,4 @@ async function main() {
   });
 
   console.log('🚀 ~ file: server.ts ~ line 13 ~ main ~ result', result);
-}
-
-main();
+})();
