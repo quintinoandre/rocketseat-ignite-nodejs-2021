@@ -8,13 +8,13 @@ const prisma = new PrismaClient();
       course: {
         create: {
           duration: 200,
-          name: 'Curso de NodeJS',
-          description: 'Curso completo de NodeJS',
+          name: 'NodeJS Course',
+          description: 'Complete NodeJS Course',
         },
       },
       module: {
         create: {
-          description: 'Curso completo de PrismaIO',
+          description: 'Complete PrismaIO Course',
           name: 'PrismaIO',
         },
       },
