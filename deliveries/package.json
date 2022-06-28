@@ -4,6 +4,9 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
+		"migration:create": "yarn prisma migrate dev",
+		"see:database": "yarn prisma studio",
+		"format:prisma": "yarn prisma format",
 		"lint": "eslint ./",
 		"lintFix": "eslint ./ --fix",
 		"format": "prettier --write \"**/*.{js,json,md,ts}\""
