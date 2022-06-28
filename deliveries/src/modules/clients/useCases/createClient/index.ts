@@ -1,2 +1,2 @@
-export * from './CreateCLientController';
+export * from './CreateClientController';
 export * from './CreateClientUseCase';

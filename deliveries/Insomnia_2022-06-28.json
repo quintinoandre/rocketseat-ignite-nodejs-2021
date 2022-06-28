@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-06-28T22:18:13.100Z",
+	"__export_date": "2022-06-28T22:57:35.467Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_59b27cacc10144289453c7a55212258a",
 			"parentId": "fld_d65d1f9d5e24408d88857cf99a60e95b",
-			"modified": 1656454685319,
+			"modified": 1656456955190,
 			"created": 1656454545534,
 			"url": "{{ _.baseURL }}/{{ _.resource_authenticate }}",
 			"name": "Client",
@@ -39,7 +39,7 @@
 		{
 			"_id": "fld_d65d1f9d5e24408d88857cf99a60e95b",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656454685315,
+			"modified": 1656456955176,
 			"created": 1656454530293,
 			"name": "Authenticate",
 			"description": "",
@@ -61,10 +61,10 @@
 		{
 			"_id": "req_4ff8b25adf84409381a75ef1fe15b1f3",
 			"parentId": "fld_ba7c3ecf5c22459697c11804fd2e9209",
-			"modified": 1656454685319,
+			"modified": 1656456955190,
 			"created": 1656444288525,
 			"url": "{{ _.baseURL }}/{{ _.resource_clients }}",
-			"name": "Create Client",
+			"name": "Create",
 			"description": "",
 			"method": "POST",
 			"body": {
@@ -93,13 +93,57 @@
 		{
 			"_id": "fld_ba7c3ecf5c22459697c11804fd2e9209",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656454685315,
+			"modified": 1656456955177,
 			"created": 1656444288523,
 			"name": "Clients",
 			"description": "",
 			"environment": { "resource_clients": "clients" },
 			"environmentPropertyOrder": { "&": ["resource_clients"] },
 			"metaSortKey": 100,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_f1f1fd4b8b464afe9ee364c445c0efc0",
+			"parentId": "fld_2b281505c87340b487ae08f2e025570b",
+			"modified": 1656456958695,
+			"created": 1656456899543,
+			"url": "{{ _.baseURL }}/{{ _.resource_deliverymen }}",
+			"name": "Create",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"danilo\",\n\t\"password\": \"123\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_d0e14e933261405e8b6199f4c9ae3719"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 0,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_2b281505c87340b487ae08f2e025570b",
+			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
+			"modified": 1656456955177,
+			"created": 1656456899539,
+			"name": "Deliverymen",
+			"description": "",
+			"environment": { "resource_deliverymen": "deliverymen" },
+			"environmentPropertyOrder": { "&": ["resource_deliverymen"] },
+			"metaSortKey": 200,
 			"_type": "request_group"
 		},
 		{

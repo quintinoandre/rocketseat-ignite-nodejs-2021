@@ -3,7 +3,7 @@ import { container } from 'tsyringe';
 
 import { CreateClientUseCase } from '.';
 
-class CreateCLientController {
+class CreateClientController {
 	async handle(request: Request, response: Response): Promise<Response> {
 		const {
 			body: { username, password },
@@ -17,4 +17,4 @@ class CreateCLientController {
 	}
 }
 
-export { CreateCLientController };
+export { CreateClientController };

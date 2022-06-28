@@ -1,5 +1,4 @@
 interface ICreateClientDTO {
-	id?: string;
 	username: string;
 	password: string;
 }
