@@ -13,7 +13,7 @@ class CreateClientUseCase {
 		private clientsRepository: IClientsRepository
 	) {}
 
-	async execute({ username, password }: ICreateClientDTO) {
+	async execute({ username, password }: ICreateClientDTO): Promise<ClientMap> {
 		const clientExist = await this.clientsRepository.findByUsername(username);
 
 		if (clientExist) throw new AppError('Client already exists'); //! status 400 - Bad request

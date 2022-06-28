@@ -1,13 +1,67 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-06-28T19:58:37.280Z",
+	"__export_date": "2022-06-28T22:18:13.100Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
+			"_id": "req_59b27cacc10144289453c7a55212258a",
+			"parentId": "fld_d65d1f9d5e24408d88857cf99a60e95b",
+			"modified": 1656454685319,
+			"created": 1656454545534,
+			"url": "{{ _.baseURL }}/{{ _.resource_authenticate }}",
+			"name": "Client",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"andre\",\n\t\"password\": \"123\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_75da7c47190b4546a210617bacda0afa"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 0,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_d65d1f9d5e24408d88857cf99a60e95b",
+			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
+			"modified": 1656454685315,
+			"created": 1656454530293,
+			"name": "Authenticate",
+			"description": "",
+			"environment": { "resource_authenticate": "authenticate" },
+			"environmentPropertyOrder": { "&": ["resource_authenticate"] },
+			"metaSortKey": 0,
+			"_type": "request_group"
+		},
+		{
+			"_id": "wrk_2c7721976b8445f9bdea734d8e152417",
+			"parentId": null,
+			"modified": 1656444288457,
+			"created": 1656444288457,
+			"name": "deliveries",
+			"description": "",
+			"scope": "collection",
+			"_type": "workspace"
+		},
+		{
 			"_id": "req_4ff8b25adf84409381a75ef1fe15b1f3",
 			"parentId": "fld_ba7c3ecf5c22459697c11804fd2e9209",
-			"modified": 1656444492820,
+			"modified": 1656454685319,
 			"created": 1656444288525,
 			"url": "{{ _.baseURL }}/{{ _.resource_clients }}",
 			"name": "Create Client",
@@ -15,7 +69,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"username\": \"andre\",\n\t\"password\": \"123\"\n}"
+				"text": "{\n\t\"username\": \"test\",\n\t\"password\": \"123\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -39,24 +93,14 @@
 		{
 			"_id": "fld_ba7c3ecf5c22459697c11804fd2e9209",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656444459392,
+			"modified": 1656454685315,
 			"created": 1656444288523,
 			"name": "Clients",
 			"description": "",
 			"environment": { "resource_clients": "clients" },
 			"environmentPropertyOrder": { "&": ["resource_clients"] },
-			"metaSortKey": 600,
+			"metaSortKey": 100,
 			"_type": "request_group"
-		},
-		{
-			"_id": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"parentId": null,
-			"modified": 1656444288457,
-			"created": 1656444288457,
-			"name": "deliveries",
-			"description": "",
-			"scope": "collection",
-			"_type": "workspace"
 		},
 		{
 			"_id": "env_df0fdd1e372b471cb4b2b38064f48a47",
