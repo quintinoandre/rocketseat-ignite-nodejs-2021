@@ -1,9 +1,10 @@
 {
 	"name": "deliveries",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "src/server.ts",
 	"license": "MIT",
 	"scripts": {
+		"dev": "tsnd --exit-child --transpile-only --ignore-watch node_modules .",
 		"migration:create": "yarn prisma migrate dev",
 		"see:database": "yarn prisma studio",
 		"format:prisma": "yarn prisma format",
@@ -14,6 +15,7 @@
 	"dependencies": {
 		"@prisma/client": "^4.0.0",
 		"bcryptjs": "^2.4.3",
+		"dotenv": "^16.0.1",
 		"express": "^4.18.1",
 		"jsonwebtoken": "^8.5.1"
 	},
