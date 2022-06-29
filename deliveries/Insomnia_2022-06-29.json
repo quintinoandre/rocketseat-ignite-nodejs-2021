@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-06-29T00:33:52.601Z",
+	"__export_date": "2022-06-29T00:56:28.017Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_59b27cacc10144289453c7a55212258a",
 			"parentId": "fld_d65d1f9d5e24408d88857cf99a60e95b",
-			"modified": 1656462825777,
+			"modified": 1656464131762,
 			"created": 1656454545534,
 			"url": "{{ _.baseURL }}/{{ _.resource_client }}/{{ _.resource_authenticate }}",
 			"name": "Client",
@@ -147,7 +147,7 @@
 		{
 			"_id": "req_8ff98ea285114d99b3d3efbd8ab162d9",
 			"parentId": "fld_d930d5fe69634da1b48e50ee4dc243c7",
-			"modified": 1656462825780,
+			"modified": 1656464173655,
 			"created": 1656462539290,
 			"url": "{{ _.baseURL }}/{{ _.resource_deliveries }}",
 			"name": "Create",
@@ -155,7 +155,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"item_name\": \"mouse usb\",\n\t\"id_client\": \"f14b0689-406f-45d5-ae1c-917bbf1153ff\"\n}"
+				"text": "{\n\t\"item_name\": \"lanche\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -165,7 +165,11 @@
 					"id": "pair_d0e14e933261405e8b6199f4c9ae3719"
 				}
 			],
-			"authentication": {},
+			"authentication": {
+				"type": "bearer",
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJlIiwiaWF0IjoxNjU2NDY0MTMzLCJleHAiOjE2NTY1NTA1MzMsInN1YiI6ImYxNGIwNjg5LTQwNmYtNDVkNS1hZTFjLTkxN2JiZjExNTNmZiJ9.0BN2GuDWgSFO3j0Aodh4YQaGsAw7o8nHDj3vXTPZ2MI",
+				"disabled": false
+			},
 			"metaSortKey": 0,
 			"isPrivate": false,
 			"settingStoreCookies": true,
