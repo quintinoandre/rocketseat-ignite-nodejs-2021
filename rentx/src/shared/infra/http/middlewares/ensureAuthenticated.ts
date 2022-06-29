@@ -10,7 +10,7 @@ interface IPayload {
 
 async function ensureAuthenticated(
 	request: Request,
-	reponse: Response,
+	_response: Response,
 	next: NextFunction
 ) {
 	const {
