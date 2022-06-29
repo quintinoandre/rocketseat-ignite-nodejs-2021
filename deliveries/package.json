@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "tsnd --exit-child --transpile-only --ignore-watch node_modules .",
 		"migration:create": "yarn prisma migrate dev",
+		"change:schema": "yarn prisma generate",
 		"see:database": "yarn prisma studio",
 		"format:prisma": "yarn prisma format",
 		"lint": "eslint ./",

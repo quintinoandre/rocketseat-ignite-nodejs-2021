@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 
 import { PrismaClient } from '@prisma/client';
 
-import { ICreateClientDTO } from '../../../dtos';
+import { ICreateClientDTO, IFindAllDeliveriesDTO } from '../../../dtos';
 import { IClientsRepository } from '../../../repositories';
 import { IClient } from '../entities';
 
@@ -25,6 +25,17 @@ class ClientsRepository implements IClientsRepository {
 		const client = await this.prisma.clients.findFirst({
 			where: { username: { equals: username, mode: 'insensitive' } },
 		});
+
+		return client;
+	}
+
+	async findAllDeliveries({
+		id_client,
+	}: IFindAllDeliveriesDTO): Promise<IClient> {
+		const client = (await this.prisma.clients.findFirst({
+			where: { id: id_client },
+			include: { deliveries: true },
+		})) as IClient;
 
 		return client;
 	}
