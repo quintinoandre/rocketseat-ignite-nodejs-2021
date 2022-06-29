@@ -1,13 +1,13 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-06-29T00:56:28.017Z",
+	"__export_date": "2022-06-29T01:17:10.921Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_59b27cacc10144289453c7a55212258a",
 			"parentId": "fld_d65d1f9d5e24408d88857cf99a60e95b",
-			"modified": 1656464131762,
+			"modified": 1656465404567,
 			"created": 1656454545534,
 			"url": "{{ _.baseURL }}/{{ _.resource_client }}/{{ _.resource_authenticate }}",
 			"name": "Client",
@@ -39,7 +39,7 @@
 		{
 			"_id": "fld_d65d1f9d5e24408d88857cf99a60e95b",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656462825768,
+			"modified": 1656465404522,
 			"created": 1656454530293,
 			"name": "Authenticate",
 			"description": "",
@@ -71,7 +71,7 @@
 		{
 			"_id": "req_cd3e18846ce94f1ca7310bc2d289aebc",
 			"parentId": "fld_d65d1f9d5e24408d88857cf99a60e95b",
-			"modified": 1656462825777,
+			"modified": 1656465404568,
 			"created": 1656460724560,
 			"url": "{{ _.baseURL }}/{{ _.resource_deliveryman }}/{{ _.resource_authenticate }}",
 			"name": "Deliveryman",
@@ -103,7 +103,7 @@
 		{
 			"_id": "req_4ff8b25adf84409381a75ef1fe15b1f3",
 			"parentId": "fld_ba7c3ecf5c22459697c11804fd2e9209",
-			"modified": 1656462825778,
+			"modified": 1656465404571,
 			"created": 1656444288525,
 			"url": "{{ _.baseURL }}/{{ _.resource_clients }}",
 			"name": "Create",
@@ -135,7 +135,7 @@
 		{
 			"_id": "fld_ba7c3ecf5c22459697c11804fd2e9209",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656462825768,
+			"modified": 1656465404522,
 			"created": 1656444288523,
 			"name": "Clients",
 			"description": "",
@@ -145,9 +145,49 @@
 			"_type": "request_group"
 		},
 		{
+			"_id": "req_fc432f1638284593a0d45699150493a4",
+			"parentId": "fld_d930d5fe69634da1b48e50ee4dc243c7",
+			"modified": 1656465404591,
+			"created": 1656465376711,
+			"url": "{{ _.baseURL }}/{{ _.resource_deliveries }}/{{ _.resource_available }}",
+			"name": "Available",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": 0,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_d930d5fe69634da1b48e50ee4dc243c7",
+			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
+			"modified": 1656465404522,
+			"created": 1656462501750,
+			"name": "Deliveries",
+			"description": "",
+			"environment": {
+				"resource_deliveries": "deliveries",
+				"resource_available": "available"
+			},
+			"environmentPropertyOrder": {
+				"&": ["resource_deliveries", "resource_available"]
+			},
+			"metaSortKey": 200,
+			"_type": "request_group"
+		},
+		{
 			"_id": "req_8ff98ea285114d99b3d3efbd8ab162d9",
 			"parentId": "fld_d930d5fe69634da1b48e50ee4dc243c7",
-			"modified": 1656464173655,
+			"modified": 1656465404591,
 			"created": 1656462539290,
 			"url": "{{ _.baseURL }}/{{ _.resource_deliveries }}",
 			"name": "Create",
@@ -170,7 +210,7 @@
 				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJlIiwiaWF0IjoxNjU2NDY0MTMzLCJleHAiOjE2NTY1NTA1MzMsInN1YiI6ImYxNGIwNjg5LTQwNmYtNDVkNS1hZTFjLTkxN2JiZjExNTNmZiJ9.0BN2GuDWgSFO3j0Aodh4YQaGsAw7o8nHDj3vXTPZ2MI",
 				"disabled": false
 			},
-			"metaSortKey": 0,
+			"metaSortKey": 100,
 			"isPrivate": false,
 			"settingStoreCookies": true,
 			"settingSendCookies": true,
@@ -181,21 +221,9 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_d930d5fe69634da1b48e50ee4dc243c7",
-			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656462825768,
-			"created": 1656462501750,
-			"name": "Deliveries",
-			"description": "",
-			"environment": { "resource_deliveries": "deliveries" },
-			"environmentPropertyOrder": { "&": ["resource_deliveries"] },
-			"metaSortKey": 200,
-			"_type": "request_group"
-		},
-		{
 			"_id": "req_f1f1fd4b8b464afe9ee364c445c0efc0",
 			"parentId": "fld_2b281505c87340b487ae08f2e025570b",
-			"modified": 1656462825780,
+			"modified": 1656465404600,
 			"created": 1656456899543,
 			"url": "{{ _.baseURL }}/{{ _.resource_deliverymen }}",
 			"name": "Create",
@@ -227,7 +255,7 @@
 		{
 			"_id": "fld_2b281505c87340b487ae08f2e025570b",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656462825768,
+			"modified": 1656465404522,
 			"created": 1656456899539,
 			"name": "Deliverymen",
 			"description": "",
