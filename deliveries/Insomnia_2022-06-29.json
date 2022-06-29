@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-06-29T18:05:01.230Z",
+	"__export_date": "2022-06-29T18:48:12.085Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
@@ -71,7 +71,7 @@
 		{
 			"_id": "req_cd3e18846ce94f1ca7310bc2d289aebc",
 			"parentId": "fld_d65d1f9d5e24408d88857cf99a60e95b",
-			"modified": 1656525866721,
+			"modified": 1656528465849,
 			"created": 1656460724560,
 			"url": "{{ _.baseURL }}/{{ _.resource_deliveryman }}/{{ _.resource_authenticate }}",
 			"name": "Deliveryman",
@@ -205,20 +205,22 @@
 		{
 			"_id": "fld_d930d5fe69634da1b48e50ee4dc243c7",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656525859798,
+			"modified": 1656528306099,
 			"created": 1656462501750,
 			"name": "Deliveries",
 			"description": "",
 			"environment": {
 				"resource_deliveries": "deliveries",
 				"resource_available": "available",
-				"resource_updateDeliveryman": "updateDeliveryman"
+				"resource_updateDeliveryman": "updateDeliveryman",
+				"resource_updateEndDate": "updateEndDate"
 			},
 			"environmentPropertyOrder": {
 				"&": [
 					"resource_deliveries",
 					"resource_available",
-					"resource_updateDeliveryman"
+					"resource_updateDeliveryman",
+					"resource_updateEndDate"
 				]
 			},
 			"metaSortKey": 200,
@@ -287,9 +289,36 @@
 			"_type": "request"
 		},
 		{
+			"_id": "req_db8efa12150843558275cf19658340ab",
+			"parentId": "fld_d930d5fe69634da1b48e50ee4dc243c7",
+			"modified": 1656528475472,
+			"created": 1656528266277,
+			"url": "{{ _.baseURL }}/{{ _.resource_deliveries }}/{{ _.resource_updateEndDate }}/1c195401-03ea-494c-a554-6e4d52027bd2",
+			"name": "Update EndDate",
+			"description": "",
+			"method": "PATCH",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {
+				"type": "bearer",
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdWxvIiwiaWF0IjoxNjU2NTI4NDY3LCJleHAiOjE2NTY2MTQ4NjcsInN1YiI6IjRkMDc4MjMxLTVjOTgtNGJhYS04YTVlLTEwNWI1ZGMzMzgyZSJ9.byxhOLDK5OrTEZLzRozX-KRbINL0ZXBrwO2xDekKB-0",
+				"disabled": false
+			},
+			"metaSortKey": 250,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
 			"_id": "req_f1f1fd4b8b464afe9ee364c445c0efc0",
 			"parentId": "fld_2b281505c87340b487ae08f2e025570b",
-			"modified": 1656525859812,
+			"modified": 1656528422920,
 			"created": 1656456899543,
 			"url": "{{ _.baseURL }}/{{ _.resource_deliverymen }}",
 			"name": "Create",

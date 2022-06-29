@@ -32,7 +32,7 @@ class DeliveriesRepository implements IDeliveriesRepository {
 		return deliveries;
 	}
 
-	async update({
+	async updateDeliveryman({
 		id_delivery,
 		id_deliveryman,
 	}: IUpdateDeliverymanDTO): Promise<IDelivery> {
@@ -40,6 +40,22 @@ class DeliveriesRepository implements IDeliveriesRepository {
 			where: { id: id_delivery },
 			data: { id_deliveryman },
 		});
+
+		return delivery;
+	}
+
+	async updateEndDate({
+		id_delivery,
+		id_deliveryman,
+	}: IUpdateDeliverymanDTO): Promise<IDelivery> {
+		await this.prisma.deliveries.updateMany({
+			where: { id: id_delivery, id_deliveryman },
+			data: { end_at: new Date() },
+		});
+
+		const delivery = (await this.prisma.deliveries.findUnique({
+			where: { id: id_delivery },
+		})) as IDelivery;
 
 		return delivery;
 	}

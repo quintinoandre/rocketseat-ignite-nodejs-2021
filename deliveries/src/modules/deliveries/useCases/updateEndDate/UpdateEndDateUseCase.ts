@@ -1,11 +1,11 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateDeliverymanDTO } from '../../dtos';
+import { IUpdateEndDateDTO } from '../../dtos';
 import { IDelivery } from '../../infra/prisma/entities';
 import { IDeliveriesRepository } from '../../repositories';
 
 @injectable()
-class UpdateDeliverymanUseCase {
+class UpdateEndDateUseCase {
 	constructor(
 		@inject('DeliveriesRepository')
 		private deliveriesRepository: IDeliveriesRepository
@@ -14,8 +14,8 @@ class UpdateDeliverymanUseCase {
 	async execute({
 		id_delivery,
 		id_deliveryman,
-	}: IUpdateDeliverymanDTO): Promise<IDelivery> {
-		const delivery = await this.deliveriesRepository.updateDeliveryman({
+	}: IUpdateEndDateDTO): Promise<IDelivery> {
+		const delivery = await this.deliveriesRepository.updateEndDate({
 			id_delivery,
 			id_deliveryman,
 		});
@@ -24,4 +24,4 @@ class UpdateDeliverymanUseCase {
 	}
 }
 
-export { UpdateDeliverymanUseCase };
+export { UpdateEndDateUseCase };
