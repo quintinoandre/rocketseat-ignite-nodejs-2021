@@ -8,7 +8,7 @@ interface IPayload {
 	sub: string;
 }
 
-async function ensureAuthenticated(
+async function ensureAuthenticatedClient(
 	request: Request,
 	_response: Response,
 	next: NextFunction
@@ -22,7 +22,7 @@ async function ensureAuthenticated(
 	const [, token] = authHeader.split(' ');
 
 	try {
-		const secretToken = auth.secretToken as string;
+		const secretToken = auth.clientSecretToken as string;
 
 		const { sub } = verify(token, secretToken) as IPayload;
 
@@ -34,4 +34,4 @@ async function ensureAuthenticated(
 	}
 }
 
-export { ensureAuthenticated };
+export { ensureAuthenticatedClient };

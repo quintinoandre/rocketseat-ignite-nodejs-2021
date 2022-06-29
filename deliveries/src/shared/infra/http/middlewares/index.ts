@@ -1,1 +1,2 @@
-export * from './ensureAuthenticated';
+export * from './ensureAuthenticatedClient';
+export * from './ensureAuthenticatedDeliveryman';

@@ -1,8 +1,9 @@
 const {
-	env: { SECRET_TOKEN },
+	env: { CLIENT_SECRET_TOKEN, DELIVERYMAN_SECRET_TOKEN },
 } = process;
 
 export default {
-	secretToken: SECRET_TOKEN,
+	clientSecretToken: CLIENT_SECRET_TOKEN,
+	deliverymanSecretToken: DELIVERYMAN_SECRET_TOKEN,
 	expiresIn: '1d',
 };

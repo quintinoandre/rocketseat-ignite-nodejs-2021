@@ -26,7 +26,7 @@ class AuthenticateClientUseCase {
 
 		if (!passwordMatched) throw new AppError('Username or password invalid'); //! status 400 - Bad request
 
-		const secretToken = auth.secretToken as string;
+		const secretToken = auth.clientSecretToken as string;
 
 		const token = sign({ username }, secretToken, {
 			subject: client.id,

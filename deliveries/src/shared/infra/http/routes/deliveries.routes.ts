@@ -2,16 +2,23 @@ import { Router } from 'express';
 
 import { CreateDeliveryController } from '../../../../modules/deliveries/useCases/createDelivery';
 import { FindAllAvailableController } from '../../../../modules/deliveries/useCases/FindAllAvailable';
-import { ensureAuthenticated } from '../middlewares';
+import {
+	ensureAuthenticatedClient,
+	ensureAuthenticatedDeliveryman,
+} from '../middlewares';
 
 const deliveriesRoutes = Router();
 
 deliveriesRoutes.post(
 	'/',
-	ensureAuthenticated,
+	ensureAuthenticatedClient,
 	new CreateDeliveryController().handle
 );
 
-deliveriesRoutes.get('/available', new FindAllAvailableController().handle);
+deliveriesRoutes.get(
+	'/available',
+	ensureAuthenticatedDeliveryman,
+	new FindAllAvailableController().handle
+);
 
 export { deliveriesRoutes };

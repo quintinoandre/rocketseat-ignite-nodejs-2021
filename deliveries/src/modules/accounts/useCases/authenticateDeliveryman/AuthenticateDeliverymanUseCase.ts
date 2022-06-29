@@ -28,7 +28,7 @@ class AuthenticateDeliverymanUseCase {
 
 		if (!passwordMatched) throw new AppError('Username or password invalid'); //! status 400 - Bad request
 
-		const secretToken = auth.secretToken as string;
+		const secretToken = auth.deliverymanSecretToken as string;
 
 		const token = sign({ username }, secretToken, {
 			subject: deliveryman.id,
