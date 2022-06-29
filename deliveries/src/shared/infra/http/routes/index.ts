@@ -6,7 +6,7 @@ import { deliverymenRoutes } from './deliverymen.routes';
 
 const router = Router();
 
-router.use('/authenticate', authenticateRoutes);
+router.use(authenticateRoutes);
 router.use('/clients', clientsRoutes);
 router.use('/deliverymen', deliverymenRoutes);
 

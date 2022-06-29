@@ -1,15 +1,15 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2022-06-28T22:57:35.467Z",
+	"__export_date": "2022-06-29T00:00:27.882Z",
 	"__export_source": "insomnia.desktop.app:v2021.7.2",
 	"resources": [
 		{
 			"_id": "req_59b27cacc10144289453c7a55212258a",
 			"parentId": "fld_d65d1f9d5e24408d88857cf99a60e95b",
-			"modified": 1656456955190,
+			"modified": 1656460812968,
 			"created": 1656454545534,
-			"url": "{{ _.baseURL }}/{{ _.resource_authenticate }}",
+			"url": "{{ _.baseURL }}/{{ _.resource_client }}/{{ _.resource_authenticate }}",
 			"name": "Client",
 			"description": "",
 			"method": "POST",
@@ -39,12 +39,22 @@
 		{
 			"_id": "fld_d65d1f9d5e24408d88857cf99a60e95b",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656456955176,
+			"modified": 1656460812955,
 			"created": 1656454530293,
 			"name": "Authenticate",
 			"description": "",
-			"environment": { "resource_authenticate": "authenticate" },
-			"environmentPropertyOrder": { "&": ["resource_authenticate"] },
+			"environment": {
+				"resource_client": "client",
+				"resource_deliveryman": "deliveryman",
+				"resource_authenticate": "authenticate"
+			},
+			"environmentPropertyOrder": {
+				"&": [
+					"resource_client",
+					"resource_deliveryman",
+					"resource_authenticate"
+				]
+			},
 			"metaSortKey": 0,
 			"_type": "request_group"
 		},
@@ -59,9 +69,41 @@
 			"_type": "workspace"
 		},
 		{
+			"_id": "req_cd3e18846ce94f1ca7310bc2d289aebc",
+			"parentId": "fld_d65d1f9d5e24408d88857cf99a60e95b",
+			"modified": 1656460812968,
+			"created": 1656460724560,
+			"url": "{{ _.baseURL }}/{{ _.resource_deliveryman }}/{{ _.resource_authenticate }}",
+			"name": "Deliveryman",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"username\": \"paulo\",\n\t\"password\": \"123\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_75da7c47190b4546a210617bacda0afa"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": 100,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
 			"_id": "req_4ff8b25adf84409381a75ef1fe15b1f3",
 			"parentId": "fld_ba7c3ecf5c22459697c11804fd2e9209",
-			"modified": 1656456955190,
+			"modified": 1656460812977,
 			"created": 1656444288525,
 			"url": "{{ _.baseURL }}/{{ _.resource_clients }}",
 			"name": "Create",
@@ -69,7 +111,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"username\": \"test\",\n\t\"password\": \"123\"\n}"
+				"text": "{\n\t\"username\": \"andre\",\n\t\"password\": \"123\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -93,7 +135,7 @@
 		{
 			"_id": "fld_ba7c3ecf5c22459697c11804fd2e9209",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656456955177,
+			"modified": 1656460812955,
 			"created": 1656444288523,
 			"name": "Clients",
 			"description": "",
@@ -105,7 +147,7 @@
 		{
 			"_id": "req_f1f1fd4b8b464afe9ee364c445c0efc0",
 			"parentId": "fld_2b281505c87340b487ae08f2e025570b",
-			"modified": 1656456958695,
+			"modified": 1656460812978,
 			"created": 1656456899543,
 			"url": "{{ _.baseURL }}/{{ _.resource_deliverymen }}",
 			"name": "Create",
@@ -113,7 +155,7 @@
 			"method": "POST",
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"username\": \"danilo\",\n\t\"password\": \"123\"\n}"
+				"text": "{\n\t\"username\": \"paulo\",\n\t\"password\": \"123\"\n}"
 			},
 			"parameters": [],
 			"headers": [
@@ -137,7 +179,7 @@
 		{
 			"_id": "fld_2b281505c87340b487ae08f2e025570b",
 			"parentId": "wrk_2c7721976b8445f9bdea734d8e152417",
-			"modified": 1656456955177,
+			"modified": 1656460812955,
 			"created": 1656456899539,
 			"name": "Deliverymen",
 			"description": "",

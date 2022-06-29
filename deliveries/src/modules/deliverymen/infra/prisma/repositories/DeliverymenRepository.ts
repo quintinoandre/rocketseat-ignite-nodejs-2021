@@ -17,7 +17,7 @@ class DeliverymenRepository implements IDeliverymenRepository {
 		username,
 		password,
 	}: ICreateDeliverymanDTO): Promise<IDeliveryman> {
-		const deliveryman = await this.prisma.deliveryman.create({
+		const deliveryman = await this.prisma.deliverymen.create({
 			data: { username, password },
 		});
 
@@ -25,7 +25,7 @@ class DeliverymenRepository implements IDeliverymenRepository {
 	}
 
 	async findByUsername(username: string): Promise<IDeliveryman | null> {
-		const deliveryman = await this.prisma.deliveryman.findFirst({
+		const deliveryman = await this.prisma.deliverymen.findFirst({
 			where: { username: { equals: username, mode: 'insensitive' } },
 		});
 

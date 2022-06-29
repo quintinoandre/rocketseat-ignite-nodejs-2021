@@ -7,13 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Deliveryman {
+model Deliverymen {
   id         String       @id @default(uuid())
   username   String       @unique
   password   String
   Deliveries Deliveries[]
 
-  @@map("deliveryman")
+  @@map("deliverymen")
 }
 
 model Clients {
@@ -31,7 +31,7 @@ model Deliveries {
   id_client      String
   client         Clients     @relation(fields: [id_client], references: [id])
   id_deliveryman String
-  deliveryman    Deliveryman @relation(fields: [id_deliveryman], references: [id])
+  deliveryman    Deliverymen @relation(fields: [id_deliveryman], references: [id])
   created_at     DateTime    @default(now())
   end_at         DateTime
 
