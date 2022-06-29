@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 
 import { PrismaClient } from '@prisma/client';
 
-import { ICreateDeliverymanDTO } from '../../../dtos';
+import { ICreateDeliverymanDTO, IFindAllDeliveriesDTO } from '../../../dtos';
 import { IDeliverymenRepository } from '../../../repositories';
 import { IDeliveryman } from '../entities';
 
@@ -28,6 +28,17 @@ class DeliverymenRepository implements IDeliverymenRepository {
 		const deliveryman = await this.prisma.deliverymen.findFirst({
 			where: { username: { equals: username, mode: 'insensitive' } },
 		});
+
+		return deliveryman;
+	}
+
+	async findAllDeliveries({
+		id_deliveryman,
+	}: IFindAllDeliveriesDTO): Promise<IDeliveryman> {
+		const deliveryman = (await this.prisma.deliverymen.findFirst({
+			where: { id: id_deliveryman },
+			include: { deliveries: true },
+		})) as IDeliveryman;
 
 		return deliveryman;
 	}
